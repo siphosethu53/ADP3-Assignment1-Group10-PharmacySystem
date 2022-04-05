@@ -1,6 +1,6 @@
 package Entity;
 
-public class customer {
+public class Customer {
 
     private int customerID;
     private int prescID;
@@ -9,7 +9,7 @@ public class customer {
     private String contactNumber;
 
     //private builder constructor
-    private customer(Builder builder){
+    private Customer(Builder builder){
         this.customerID = builder.customerID;
         this.prescID = builder.prescID;
         this.cusName = builder.cusName;
@@ -99,8 +99,18 @@ public class customer {
             this.contactNumber = contactNumber;
             return this;
         }
-        public customer build(){
-            return new customer(this);
+
+        public Builder copy(Customer customer){
+            this.customerID = customer.customerID;
+            this.prescID = customer.prescID;
+            this.cusName = customer.cusName;
+            this.cusGender = customer.cusGender;
+            this.contactNumber = customer.contactNumber;
+
+            return this;
+        }
+        public Customer build(){
+            return new Customer(this);
         }
 
     }

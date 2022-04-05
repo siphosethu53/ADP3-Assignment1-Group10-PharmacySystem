@@ -1,6 +1,6 @@
 package Entity;
 
-public class prescription {
+public class Prescription {
 
     private int prescID;
     private int customerID;
@@ -8,7 +8,7 @@ public class prescription {
     private int prescDoses;
 
     //private builder constructor
-    private prescription(Builder builder){
+    private Prescription(Builder builder){
         this.prescID = builder.prescID;
         this.customerID = builder.customerID;
         this.prescType = builder.prescType;
@@ -73,8 +73,17 @@ public class prescription {
             return this;
         }
 
-        public prescription build(){
-            return new prescription(this);
+        public Builder copy(Prescription prescription){
+            this.prescID = prescription.prescID;
+            this.customerID = prescription.customerID;
+            this.prescType = prescription.prescType;
+            this.prescDoses = prescription.prescDoses;
+
+            return this;
+        }
+
+        public Prescription build(){
+            return new Prescription(this);
         }
     }
 }

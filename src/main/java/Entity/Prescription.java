@@ -47,7 +47,7 @@ public class Prescription {
         this.prescDoses = prescDoses;
     }
 
-    private static class Builder{
+    public static class Builder{
         private int prescID;
         private int customerID;
         private String prescType;

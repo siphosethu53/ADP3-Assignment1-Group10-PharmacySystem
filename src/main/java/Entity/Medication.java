@@ -3,11 +3,11 @@ package Entity;
 import java.util.jar.Attributes;
 
 public class Medication {
-    private final int medId ;
-    private final int suppId ;
-    private final String medName;
-    private final String medManuf;
-    private final int medAmount;
+    private int medId ;
+    private int suppId ;
+    private String medName;
+    private String medManuf;
+    private int medAmount;
 
     public int getMedId() {
         return medId;
@@ -29,6 +29,28 @@ public class Medication {
         return medAmount;
     }
 
+    public void setMedId(int medId) {
+        this.medId = medId;
+    }
+
+    public void setSuppId(int suppId) {
+        this.suppId = suppId;
+    }
+
+    public void setMedName(String medName) {
+        this.medName = medName;
+    }
+
+    public void setMedManuf(String medManuf) {
+        this.medManuf = medManuf;
+    }
+
+    public void setMedAmount(int medAmount) {
+        this.medAmount = medAmount;
+    }
+
+
+
     private Medication(Builder builder){
         this.medId = builder.medId;
         this.suppId = builder.suppId;
@@ -44,7 +66,7 @@ public class Medication {
         private String medManuf;
         private int medAmount;
 
-        public Builder medId(final int medId){
+        public Builder medId(int medId){
             this.medId = medId;
             return this;
         }

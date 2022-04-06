@@ -1,11 +1,11 @@
 package Entity;
 
 public class Supplier {
-    private final int suppId;
-    private final String suppName;
-    private final String suppAddress;
-    private final String suppContact;
-    private final String suppEmail;
+    private int suppId;
+    private String suppName;
+    private String suppAddress;
+    private String suppContact;
+    private String suppEmail;
 
     public int getSuppId() {
         return suppId;
@@ -25,6 +25,37 @@ public class Supplier {
 
     public String getSuppEmail() {
         return suppEmail;
+    }
+
+    public void setSuppId(int suppId) {
+        this.suppId = suppId;
+    }
+
+    public void setSuppName(String suppName) {
+        this.suppName = suppName;
+    }
+
+    public void setSuppAddress(String suppAddress) {
+        this.suppAddress = suppAddress;
+    }
+
+    public void setSuppContact(String suppContact) {
+        this.suppContact = suppContact;
+    }
+
+    public void setSuppEmail(String suppEmail) {
+        this.suppEmail = suppEmail;
+    }
+
+    @Override
+    public String toString() {
+        return "Supplier{" +
+                "suppId=" + suppId +
+                ", suppName='" + suppName + '\'' +
+                ", suppAddress='" + suppAddress + '\'' +
+                ", suppContact='" + suppContact + '\'' +
+                ", suppEmail='" + suppEmail + '\'' +
+                '}';
     }
 
     private Supplier(Builder builder){

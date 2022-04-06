@@ -1,8 +1,8 @@
 package za.ac.cput.domain;
 import java.sql.Time;
 import java.util.Date;
-/* Reciept.java
- * Entity for the Reciept
+/*ConsultationRecord.java
+ * Entity for the ConsultationRecord
  * Thabiso Matsaba 220296006
  * 05 April 2022
  */

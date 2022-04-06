@@ -1,4 +1,4 @@
-package za.ac.cput.domain;
+package za.ac.cput.Entity;
 import java.util.Date;
 /* Reciept.java
  * Entity for the Reciept

@@ -1,4 +1,4 @@
-package za.ac.cput.domain;
+package za.ac.cput.Entity;
 import java.sql.Time;
 import java.util.Date;
 /*ConsultationRecord.java

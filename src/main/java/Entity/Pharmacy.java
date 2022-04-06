@@ -1,0 +1,112 @@
+package Entity;
+
+public class Pharmacy {
+    private String pharmID;
+    private int cashierID;
+    private String pharmName;
+    private String pharmAddress;
+    private String pharmContact;
+    private int supplierID;
+
+    private Pharmacy (){}
+    //Insert private constructor
+    private Pharmacy (Pharmacy.Builder builder){
+        this.pharmID=builder.pharmID;
+        this.cashierID=builder.cashierID;
+        this.pharmName=builder.pharmName;
+        this.pharmAddress=builder.pharmAddress;
+        this.pharmContact=builder.pharmContact;
+        this.supplierID=builder.supplierID;
+    }
+
+
+    public String getPharmID() {
+        return pharmID;
+    }
+
+    public int getCashierID() {
+        return cashierID;
+    }
+
+    public String getPharmName() {
+        return pharmName;
+    }
+
+    public String getPharmAddress() {
+        return pharmAddress;
+    }
+
+    public String getPharmContact() {
+        return pharmContact;
+    }
+
+    public int getSupplierID() {
+        return supplierID;
+    }
+
+    @Override
+    public String toString() {
+        return "Pharmacy{" +
+                "pharmID=" + pharmID +
+                ", cashierID=" + cashierID +
+                ", pharmName='" + pharmName + '\'' +
+                ", pharmAddress='" + pharmAddress + '\'' +
+                ", pharmContact='" + pharmContact + '\'' +
+                ", supplierID=" + supplierID +
+                '}';
+    }
+
+    public static class Builder{
+        private String pharmID;
+        private int cashierID;
+        private String pharmName;
+        private String pharmAddress;
+        private String pharmContact;
+        private int supplierID;
+
+        public Builder setPharmID(String pharmID) {
+            this.pharmID = pharmID;
+            return this;
+        }
+
+        public Builder setCashierID(int cashierID) {
+            this.cashierID = cashierID;
+            return this;
+        }
+
+        public Builder setPharmName(String pharmName) {
+            this.pharmName = pharmName;
+            return this;
+        }
+
+        public Builder setPharmAddress(String pharmAddress) {
+            this.pharmAddress = pharmAddress;
+            return this;
+        }
+
+        public Builder setPharmContact(String pharmContact) {
+            this.pharmContact = pharmContact;
+            return this;
+        }
+
+        public Builder setSupplierID(int supplierID) {
+            this.supplierID = supplierID;
+            return this;
+        }
+
+        public Pharmacy.Builder copy (Pharmacy pharmacy){
+            this.pharmID=pharmacy.pharmID;
+            this.cashierID=pharmacy.cashierID;
+            this.pharmName=pharmacy.pharmName;
+            this.pharmAddress=pharmacy.pharmAddress;
+            this.pharmContact=pharmacy.pharmContact;
+            this.supplierID=pharmacy.supplierID;
+            return this;
+        }
+        public Pharmacy build (){
+            return new Pharmacy(this);
+        }
+
+    }
+
+}

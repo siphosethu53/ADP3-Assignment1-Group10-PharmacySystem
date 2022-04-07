@@ -8,25 +8,25 @@ package Entity;
 
 public class EmployeeContact {
 
-    private int employeeId;
+    private int employeeContactId;
     private int  typeId;
     private String empContact ;
     private String conDescription;
 
     private EmployeeContact(Builder builder){
-        this.employeeId = builder.employeeId;
+        this.employeeContactId = builder.employeeContactId;
         this.typeId = builder.typeId;
         this.empContact  = builder.empContact ;
         this.conDescription = builder.conDescription;
     }
 
 
-    public int getEmployeeId() {
-        return employeeId;
+    public int getEmployeeContactId() {
+        return employeeContactId;
     }
 
-    public void setEmployeeId(int employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployeeContactIdId(int employeeId) {
+        this.employeeContactId = employeeId;
     }
 
     public int getTypeId() {
@@ -56,7 +56,7 @@ public class EmployeeContact {
     @Override
     public String toString() {
         return "EmployeeContact{" +
-                "employeeId=" + employeeId +
+                "employeeId=" + employeeContactId +
                 ", typeId=" + typeId +
                 ", empContact='" + empContact + '\'' +
                 ", conDescription='" + conDescription + '\'' +
@@ -65,14 +65,14 @@ public class EmployeeContact {
 
     public static class Builder {
 
-        private int employeeId;
+        private int employeeContactId;
         private int  typeId;
         private String empContact ;
         private String conDescription;
 
 
-        public Builder employeeId( int employeeId) {
-            this.employeeId = employeeId;
+        public Builder employeeContactId( int employeeContactId) {
+            this.employeeContactId = employeeContactId;
             return this;
         }
 
@@ -92,7 +92,7 @@ public class EmployeeContact {
         }
 
         public Builder copy(EmployeeContact employeecontact) {
-            this.employeeId = employeecontact.employeeId;
+            this.employeeContactId = employeecontact.employeeContactId;
             this.typeId = employeecontact.typeId;
             this.empContact = employeecontact.empContact;
             this.conDescription = employeecontact.conDescription;

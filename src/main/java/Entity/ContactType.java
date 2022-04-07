@@ -8,23 +8,23 @@ package Entity;
 
 public class ContactType {
 
-        private int typeId;
+        private int contactTypeId;
         private String contactName;
         private String contactDescription;
 
         private ContactType(Builder builder) {
-            this.typeId = builder.typeId;
+            this.contactTypeId = builder.contactTypeId;
             this.contactName = builder.contactName;
             this.contactDescription = builder.contactDescription;
         }
 
 
-        public int getTypeId() {
-            return typeId;
+        public int getContactTypeId() {
+            return contactTypeId;
         }
 
-        public void setTypeId(int typeId) {
-            this.typeId = typeId;
+        public void setContactTypeId(int typeId) {
+            this.contactTypeId = typeId;
         }
 
         public String getContactName() {
@@ -46,7 +46,7 @@ public class ContactType {
         @Override
         public String toString() {
             return "ContactType{" +
-                    "typeId=" + typeId +
+                    "typeId=" + contactTypeId +
                     ", contactName='" + contactName + '\'' +
                     ", contactDescription='" + contactDescription + '\'' +
                     '}';
@@ -54,12 +54,12 @@ public class ContactType {
 
         public static class Builder {
 
-            private int typeId;
+            private int contactTypeId;
             private String contactName;
             private String contactDescription;
 
-            public Builder typeId(int typeId) {
-                this.typeId = typeId;
+            public Builder contactTypeId(int contactTypeId) {
+                this.contactTypeId = contactTypeId;
                 return this;
             }
 
@@ -74,7 +74,7 @@ public class ContactType {
             }
 
             public Builder copy(ContactType contactType) {
-                this.typeId = contactType.typeId;
+                this.contactTypeId = contactType.contactTypeId;
                 this.contactName = contactType.contactName;
                 this.contactDescription = contactType.contactDescription;
                 return this;

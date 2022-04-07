@@ -96,7 +96,7 @@ public class ConsultationRecord {
         return this;
     }
     
-    private ConsultationRecord build(){
+    public ConsultationRecord build(){
             return new ConsultationRecord(this);
         }
     }

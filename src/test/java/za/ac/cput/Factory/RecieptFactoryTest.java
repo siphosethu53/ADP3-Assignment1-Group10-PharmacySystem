@@ -2,7 +2,6 @@ package za.ac.cput.Factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.Entity.Reciept;
-import java.time.LocalDateTime;
 import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 

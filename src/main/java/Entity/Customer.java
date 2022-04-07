@@ -1,3 +1,8 @@
+/* Customer.java
+ Entity for the Customer
+ Author: Zaeem Petersen (219010145)
+ Date: 05 April 2022
+*/
 package Entity;
 
 public class Customer {

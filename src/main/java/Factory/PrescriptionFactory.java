@@ -1,3 +1,8 @@
+/* PrescriptionFactory.java
+ Factory class for the Prescription Entity
+ Author: Zaeem Petersen (219010145)
+ Date: 06 April 2022
+*/
 package Factory;
 
 import Entity.Prescription;

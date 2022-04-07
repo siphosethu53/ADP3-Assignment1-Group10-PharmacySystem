@@ -1,7 +1,7 @@
 /*
- *  Name: Abongile Tshopi
- *  Student Number: 214254151
- *  Group: 23
+ *  Name: Siphosethu Feni
+ *  Student Number: 217237614
+ *  Group: 10
  *
  */
 
@@ -9,7 +9,7 @@ package Entity;
 
 public class JobTitle {
 
-    private String employeeID, secretaryID, doctorID;
+    private int employeeID, secretaryID, doctorID;
 
     private JobTitle(Builder builder) {
         this.employeeID=builder.employeeID;
@@ -17,33 +17,33 @@ public class JobTitle {
         this.doctorID = builder.doctorID;
     }
 
-    public String getEmployeeID() {
+    public int getEmployeeID() {
         return employeeID;
     }
-    public String getSecretaryID() {
+    public int getSecretaryID() {
         return secretaryID;
     }
-    public String getDoctorID() {
+    public int getDoctorID() {
         return doctorID;
     }
 
     public static class Builder {
-        private String employeeID;
-        private String secretaryID;
-        private String doctorID;
+        private int employeeID;
+        private int secretaryID;
+        private int doctorID;
 
 
-        public Builder setEmployeeID(String employeeID) {
+        public Builder setEmployeeID(int employeeID) {
             this.employeeID = employeeID;
             return this;
         }
 
-        public Builder setSecretaryID(String SecretaryID) {
+        public Builder setSecretaryID(int SecretaryID) {
             this.secretaryID = secretaryID;
             return this;
         }
 
-        public Builder setDoctorID(String doctorID) {
+        public Builder setDoctorID(int doctorID) {
             this.doctorID = doctorID;
             return this;
         }
@@ -64,7 +64,7 @@ public class JobTitle {
 
     @Override
     public String toString() {
-        return "JobTitle{" +
+        return "JobTitleFactory{" +
                 "employeeID='" + employeeID + '\'' +
                 ", secretaryID='" + secretaryID + '\'' +
                 ", doctorID='" + doctorID + '\'' +

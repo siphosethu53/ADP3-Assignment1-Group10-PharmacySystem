@@ -1,13 +1,15 @@
 /**
- * Author: Robyn White (218034555)
+ * Author: Siphosethu Feni
  * Inventory.java
  */
 package Entity;
 
 public class Inventory {
-    private String inventoryID, medicationID, tableStockAmount, medicineStockAmount;
+    private int inventoryID, tableStockAmount, medicineStockAmount;
+    private String medicationID;
 
-    public Inventory(String inventoryID, String medicationID, String tableStockAmount, String medicineStockAmount) {
+
+    public Inventory(int inventoryID, String medicationID, int tableStockAmount, int medicineStockAmount) {
         this.inventoryID = inventoryID;
         this.medicationID = medicationID;
         this.tableStockAmount = tableStockAmount;
@@ -23,7 +25,7 @@ public class Inventory {
 
     }
 
-    public String getInventoryID() {
+    public int getInventoryID() {
         return inventoryID;
     }
 
@@ -31,21 +33,22 @@ public class Inventory {
         return medicationID;
     }
 
-    public String getTableStockAmount() {
+    public int getTableStockAmount() {
         return tableStockAmount;
     }
 
-    public String getMedicineStockAmount() {
+    public int getMedicineStockAmount() {
         return medicineStockAmount;
     }
 
 
     public static class Builder {
 
-        private String inventoryID, medicationID, tableStockAmount, medicineStockAmount;
+        private int inventoryID, tableStockAmount, medicineStockAmount;
+        private String medicationID;
 
 
-        public Builder setInventory(String inventoryID) {
+        public Builder setInventory(int inventoryID) {
             this.inventoryID = inventoryID;
             return this;
         }
@@ -55,7 +58,7 @@ public class Inventory {
             return this;
         }
 
-        public Builder setTableStockAmount(String tableStockAmount) {
+        public Builder setTableStockAmount(int tableStockAmount) {
             this.tableStockAmount = tableStockAmount;
             return this;
         }

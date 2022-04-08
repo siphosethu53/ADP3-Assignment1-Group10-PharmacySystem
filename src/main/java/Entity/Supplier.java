@@ -1,13 +1,13 @@
 package Entity;
 
 public class Supplier {
-    private int suppId;
+    private String suppId;
     private String suppName;
     private String suppAddress;
     private String suppContact;
     private String suppEmail;
 
-    public int getSuppId() {
+    public String getSuppId() {
         return suppId;
     }
 
@@ -27,7 +27,7 @@ public class Supplier {
         return suppEmail;
     }
 
-    public void setSuppId(int suppId) {
+    public void setSuppId(String suppId) {
         this.suppId = suppId;
     }
 
@@ -67,33 +67,34 @@ public class Supplier {
     }
 
     public static class Builder{
-        private int suppId;
+        private String suppId;
         private String suppName;
         private String suppAddress;
         private String suppContact;
         private String suppEmail;
 
-        public Builder suppId(final int suppId){
+
+        public Builder suppId(String suppId){
             this.suppId = suppId;
             return this;
         }
 
-        public Builder suppName(final String suppName){
+        public Builder suppName(String suppName){
             this.suppName = suppName;
             return this;
         }
 
-        public Builder suppAddress(final String suppAddress){
+        public Builder suppAddress(String suppAddress){
             this.suppAddress = suppAddress;
             return this;
         }
 
-        public Builder suppContact(final String suppContact){
+        public Builder suppContact(String suppContact){
             this.suppContact = suppContact;
             return this;
         }
 
-        public Builder suppEmail(final String suppEmail){
+        public Builder suppEmail(String suppEmail){
             this.suppEmail = suppEmail;
             return this;
         }
@@ -102,7 +103,12 @@ public class Supplier {
             return new Supplier(this);
         }
 
+        public Builder copy(Supplier supplier) {
+            this.suppId(supplier.getSuppId());
+            return this;
+        }
     }
+
 
 //    public static void main(String[] args){
 //        Supplier supplier = new Builder().suppName("AlphaPharm").build();

@@ -1,5 +1,11 @@
 package Entity;
 
+/* Pharmacy.java
+   Entity for the Pharmacy
+   Author: Waseem Dollie (216040566)
+   Date: 5 April 2022
+*/
+
 public class Pharmacy {
     private String pharmID;
     private int cashierID;

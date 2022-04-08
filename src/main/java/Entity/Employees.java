@@ -1,8 +1,14 @@
 package Entity;
 
+/* Employees.java
+   Entity for the Employees
+   Author: Waseem Dollie (216040566)
+   Date: 5 April 2022
+*/
+
 public class Employees {
     private String employeeNumber;
-    private int doctorId;
+    private int doctorID;
     private int secretaryID;
     private int cashierID;
     private String employeeName;
@@ -12,7 +18,7 @@ public class Employees {
     //Insert private constructor
     private Employees (Employees.Builder builder){
         this.employeeNumber=builder.employeeNumber;
-        this.doctorId=builder.doctorId;
+        this.doctorID=builder.doctorID;
         this.secretaryID=builder.secretaryID;
         this.cashierID=builder.cashierID;
         this.employeeName=builder.employeeName;
@@ -25,7 +31,7 @@ public class Employees {
     }
 
     public int getDoctorId() {
-        return doctorId;
+        return doctorID;
     }
 
     public int getSecretaryID() {
@@ -48,7 +54,7 @@ public class Employees {
     public String toString() {
         return "Employees{" +
                 "employeeNumber=" + employeeNumber +
-                ", doctorId=" + doctorId +
+                ", doctorId=" + doctorID +
                 ", secretaryID=" + secretaryID +
                 ", cashierID=" + cashierID +
                 ", employeeName='" + employeeName + '\'' +
@@ -58,7 +64,7 @@ public class Employees {
 
     public static class Builder{
         private String employeeNumber;
-        private int doctorId;
+        private int doctorID;
         private int secretaryID;
         private int cashierID;
         private String employeeName;
@@ -69,8 +75,8 @@ public class Employees {
             return this;
         }
 
-        public Builder setDoctorId(int doctorId) {
-            this.doctorId = doctorId;
+        public Builder setDoctorId(int doctorID) {
+            this.doctorID = doctorID;
             return this;
         }
 
@@ -96,7 +102,7 @@ public class Employees {
 
         public Employees.Builder copy (Employees employees){
             this.employeeNumber=employees.employeeNumber;
-            this.doctorId=employees.doctorId;
+            this.doctorID=employees.doctorID;
             this.secretaryID=employees.secretaryID;
             this.cashierID=employees.cashierID;
             this.employeeName=employees.employeeName;

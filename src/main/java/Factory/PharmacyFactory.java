@@ -1,6 +1,11 @@
 package Factory;
 
-import Entity.Employees;
+/* PharmacyFactory.java
+   Factory for the PharmacyFactory
+   Author: Waseem Dollie (216040566)
+   Date: 7 April 2022
+*/
+
 import Entity.Pharmacy;
 import Util.WaseemHelper;
 

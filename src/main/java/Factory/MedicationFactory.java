@@ -5,12 +5,16 @@ import Util.IlyaasHelper;
 
 public class MedicationFactory {
 
-    public static Medication createMedication(int suppID,String MedName,String MedManuf,int MedAmount){
-        int medID = IlyaasHelper.MedId();
-        Medication medication = new Medication.Builder().medId(medID)
-                .suppId(suppID)
+    public static Medication createMedication(String SuppID,String MedName,String MedManuf,int MedAmount){
+        String mID = IlyaasHelper.GenerateId();
+        if (IlyaasHelper.isNullorEmpty(MedName)||IlyaasHelper.isNullorEmpty(MedManuf)){
+            return null;
+        }
+
+        Medication medication = new Medication.Builder().medId(mID)
+                .suppId(SuppID)
                 .medName(MedName)
-                .medManuf(MedName)
+                .medManuf(MedManuf)
                 .medAmount(MedAmount)
                 .build();
         return medication;

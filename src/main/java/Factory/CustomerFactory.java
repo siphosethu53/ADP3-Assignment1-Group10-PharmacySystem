@@ -1,3 +1,8 @@
+/* CustomerFactory.java
+ Factory class for the Customer Entity
+ Author: Zaeem Petersen (219010145)
+ Date: 06 April 2022
+*/
 package Factory;
 
 import Entity.Customer;

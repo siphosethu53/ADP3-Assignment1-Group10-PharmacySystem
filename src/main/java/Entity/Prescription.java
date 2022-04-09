@@ -1,3 +1,8 @@
+/* Prescription.java
+ Entity for the Prescription
+ Author: Zaeem Petersen (219010145)
+ Date: 05 April 2022
+*/
 package Entity;
 
 public class Prescription {
@@ -45,6 +50,16 @@ public class Prescription {
 
     public void setPrescDoses(int prescDoses) {
         this.prescDoses = prescDoses;
+    }
+
+    @Override
+    public String toString() {
+        return "Prescription{" +
+                "prescID=" + prescID +
+                ", customerID=" + customerID +
+                ", prescType='" + prescType + '\'' +
+                ", prescDoses=" + prescDoses +
+                '}';
     }
 
     public static class Builder{

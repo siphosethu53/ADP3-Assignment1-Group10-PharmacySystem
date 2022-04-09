@@ -1,6 +1,9 @@
+/* ZaeemHelper.java
+ Helper class for the Customer and Prescription Entity and Factory classes
+ Author: Zaeem Petersen (219010145)
+ Date: 07 April 2022
+*/
 package Util;
-
-import java.util.UUID;
 
 public class ZaeemHelper {
 

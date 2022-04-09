@@ -1,3 +1,8 @@
+/* CustomerFactoryTest.java
+ Test class for the Customer Factory class
+ Author: Zaeem Petersen (219010145)
+ Date: 07 April 2022
+*/
 package Factory;
 
 import Entity.Customer;

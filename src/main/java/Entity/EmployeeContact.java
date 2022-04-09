@@ -1,15 +1,15 @@
 package Entity;
 
-/**
- * @author Daniella Burgess 219446482
- * This is EmployeeContact.java
- * Date 05 April 2022
+/** EmployeeContact.java
+ * Entity class for EmployeeContact
+ * Author: Daniella Burgess (219446482)
+ * Date: 05 April 2022
  */
 
 public class EmployeeContact {
 
-    private int employeeContactId;
-    private int  typeId;
+    private String employeeContactId;
+    private String  typeId;
     private String empContact ;
     private String conDescription;
 
@@ -21,19 +21,19 @@ public class EmployeeContact {
     }
 
 
-    public int getEmployeeContactId() {
+    public String getEmployeeContactId() {
         return employeeContactId;
     }
 
-    public void setEmployeeContactIdId(int employeeId) {
-        this.employeeContactId = employeeId;
+    public void setEmployeeContactId(String employeeContactId) {
+        this.employeeContactId = employeeContactId;
     }
 
-    public int getTypeId() {
+    public String getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(int typeId) {
+    public void setTypeId(String typeId) {
         this.typeId = typeId;
     }
 
@@ -65,18 +65,18 @@ public class EmployeeContact {
 
     public static class Builder {
 
-        private int employeeContactId;
-        private int  typeId;
+        private String employeeContactId;
+        private String typeId;
         private String empContact ;
         private String conDescription;
 
 
-        public Builder employeeContactId( int employeeContactId) {
+        public Builder employeeContactId(String employeeContactId) {
             this.employeeContactId = employeeContactId;
             return this;
         }
 
-        public Builder typeId(int typeId){
+        public Builder typeId(String typeId){
             this.typeId = typeId;
             return this;
         }

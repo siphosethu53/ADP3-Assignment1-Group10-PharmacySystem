@@ -1,14 +1,14 @@
 package Entity;
 
-/**
- * @author Daniella Burgess 219446482
- * This is ContactType.java
- * Date 05 April 2022
+/**ContactType.java
+ * Entity class for ContactType
+ * Author: Daniella Burgess (219446482)
+ * Date: 05 April 2022
  */
 
 public class ContactType {
 
-        private int contactTypeId;
+        private String contactTypeId;
         private String contactName;
         private String contactDescription;
 
@@ -19,11 +19,11 @@ public class ContactType {
         }
 
 
-        public int getContactTypeId() {
+        public String getContactTypeId() {
             return contactTypeId;
         }
 
-        public void setContactTypeId(int typeId) {
+        public void setContactTypeId(String typeId) {
             this.contactTypeId = typeId;
         }
 
@@ -54,11 +54,11 @@ public class ContactType {
 
         public static class Builder {
 
-            private int contactTypeId;
+            private String contactTypeId;
             private String contactName;
             private String contactDescription;
 
-            public Builder contactTypeId(int contactTypeId) {
+            public Builder contactTypeId(String contactTypeId) {
                 this.contactTypeId = contactTypeId;
                 return this;
             }
@@ -83,6 +83,7 @@ public class ContactType {
             public ContactType build() {
                 return new ContactType(this);
             }
+
 
         }
     }

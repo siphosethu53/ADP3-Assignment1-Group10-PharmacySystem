@@ -1,11 +1,13 @@
 package Entity;
-
+/*Medication.java
+Entity for the Medication
+Author : Ilyaas Davids (219466424)
+Date : 10 April 2022*/
 public class Medication {
     private String medId ;
     private String suppId ;
     private String medName;
     private String medManuf;
-    private int medAmount;
 
     public String getMedId() {
         return medId;
@@ -23,9 +25,6 @@ public class Medication {
         return medManuf;
     }
 
-    public int getMedAmount() {
-        return medAmount;
-    }
 
     public void setMedId(String medId) {
         this.medId = medId;
@@ -43,9 +42,6 @@ public class Medication {
         this.medManuf = medManuf;
     }
 
-    public void setMedAmount(int medAmount) {
-        this.medAmount = medAmount;
-    }
 
     @Override
     public String toString() {
@@ -54,7 +50,6 @@ public class Medication {
                 ", suppId='" + suppId + '\'' +
                 ", medName='" + medName + '\'' +
                 ", medManuf='" + medManuf + '\'' +
-                ", medAmount=" + medAmount +
                 '}';
     }
 
@@ -63,7 +58,6 @@ public class Medication {
         this.suppId = builder.suppId;
         this.medName = builder.medName;
         this.medManuf = builder.medManuf;
-        this.medAmount = builder.medAmount;
     }
 
 
@@ -72,7 +66,6 @@ public class Medication {
         private String suppId ;
         private String medName;
         private String medManuf;
-        private int medAmount;
 
         public Builder medId (String medId){
             this.medId = medId;
@@ -91,11 +84,6 @@ public class Medication {
 
         public Builder medManuf(String medManuf){
             this.medManuf = medManuf;
-            return this;
-        }
-
-        public Builder medAmount(int medAmount){
-            this.medAmount = medAmount;
             return this;
         }
 

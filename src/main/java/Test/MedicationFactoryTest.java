@@ -10,7 +10,7 @@ class MedicationFactoryTest {
 
     @Test
     public void test() {
-        Medication medication = MedicationFactory.createMedication("1","Loratadine","Allergex",50);
+        Medication medication = MedicationFactory.createMedication("1","Loratadine","Allergex");
         assertNotNull(medication);
         System.out.print(medication.toString());
     }

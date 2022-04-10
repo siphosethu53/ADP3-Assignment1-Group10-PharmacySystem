@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class MedicationRepositoryTest {
     private static MedicationRepository repository = MedicationRepository.getRepository();
-    private static Medication medication = MedicationFactory.createMedication("UUID","Paracetamol","Panado",80);
+    private static Medication medication = MedicationFactory.createMedication("UUID","Paracetamol","Panado");
 
     @Test
     void a_create() {
@@ -37,7 +37,6 @@ class MedicationRepositoryTest {
                 .suppId("Random")
                 .medName("Paracetamol")
                 .medManuf("ADCO")
-                .medAmount(60)
                 .build();
         assertNotNull(repository.update(updated));
         System.out.print("Updated : " + updated);

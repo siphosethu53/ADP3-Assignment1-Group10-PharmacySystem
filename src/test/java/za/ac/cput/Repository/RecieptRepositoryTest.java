@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class RecieptRepositoryTest {
     private static RecieptRepository repository = RecieptRepository.getRepository();
-    private static Reciept reciept = RecieptFactory.createReciept("1234", "1234", new Date()) ;
+    private static Reciept reciept = RecieptFactory.createReciept(1234, 1234, new Date()) ;
 
     @Test
     void a_create() {
@@ -38,8 +38,8 @@ class RecieptRepositoryTest {
     @Test
     void c_update() {
         Reciept updated = new Reciept.Builder().copy(reciept)
-                                     .setRecieptID("1267")
-                                     .setPrescriptionID("5443")
+                                     .setRecieptID(1267)
+                                     .setPrescriptionID(5443)
                                      .setRecieptDate(new Date())
                                      .build();
         assertNotNull(repository.update(updated));

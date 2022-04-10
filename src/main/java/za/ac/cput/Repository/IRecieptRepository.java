@@ -9,7 +9,7 @@ import java.util.Set;
  * 08 April 2022
  */
 
-public interface IRecieptRepository extends IRepository<Reciept, String>{
+public interface IRecieptRepository extends IRepository<Reciept, Integer>{
 
     public Set<Reciept> getAll();
 }

@@ -9,7 +9,7 @@ import java.util.Set;
  * 08 April 2022
  */
 
-public interface IConsultationRecordRepository extends IRepository<ConsultationRecord, String> {
+public interface IConsultationRecordRepository extends IRepository<ConsultationRecord, Integer> {
 
     public Set<ConsultationRecord> getAll();
 }

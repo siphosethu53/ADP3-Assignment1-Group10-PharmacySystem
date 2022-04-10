@@ -36,13 +36,14 @@ public class RecieptRepository implements IRecieptRepository{
     }
 
     @Override
-    public Reciept read(String recieptID) {
+    public Reciept read(Integer recieptID) {
         for (Reciept e : recieptObjects) {
-            if (e.getRecieptID().equals(recieptID))
+            if (e.getRecieptID() == recieptID)
                 return e;
         }
         return null;
     }
+
 
     @Override
     public Reciept update(Reciept reciept) {
@@ -56,11 +57,11 @@ public class RecieptRepository implements IRecieptRepository{
     }
 
     @Override
-    public boolean delete(String recieptID) {
+    public boolean delete(Integer recieptID) {
         Reciept recieptToDelete = read(recieptID);
         if(recieptToDelete == null)
             return false;
-            recieptObjects.remove(recieptToDelete);
+        recieptObjects.remove(recieptToDelete);
         return true;
     }
 

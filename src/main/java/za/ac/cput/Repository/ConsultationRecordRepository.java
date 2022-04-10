@@ -33,13 +33,15 @@ public class ConsultationRecordRepository implements IConsultationRecordReposito
     }
 
     @Override
-    public ConsultationRecord read(String consultationRecordID) {
+    public ConsultationRecord read(Integer consultationRecordID) {
         for (ConsultationRecord e : consultationRecordObjects) {
-            if (e.getConsultationRecordID().equals(consultationRecordID));
-                return e;
+            if (e.getConsultationRecordID() == consultationRecordID);
+            return e;
         }
         return null;
     }
+
+
 
     @Override
     public ConsultationRecord update(ConsultationRecord consultationRecord) {
@@ -53,13 +55,14 @@ public class ConsultationRecordRepository implements IConsultationRecordReposito
     }
 
     @Override
-    public boolean delete(String consultationRecordID) {
+    public boolean delete(Integer consultationRecordID) {
         ConsultationRecord consultationRecordToDelete = read(consultationRecordID);
         if(consultationRecordToDelete == null)
             return false;
-            consultationRecordObjects.remove(consultationRecordToDelete);
+        consultationRecordObjects.remove(consultationRecordToDelete);
         return true;
     }
+
     @Override
     public Set<ConsultationRecord> getAll() {
 

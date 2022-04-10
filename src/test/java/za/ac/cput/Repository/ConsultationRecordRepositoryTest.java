@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @TestMethodOrder(MethodOrderer.MethodName.class)
 class ConsultationRecordRepositoryTest {
     private static ConsultationRecordRepository repository = ConsultationRecordRepository.getRepository();
-    private static ConsultationRecord consultationRecord = ConsultationRecordFactory.createConsultationRecord("233", "1234", new Date(), null);
+    private static ConsultationRecord consultationRecord = ConsultationRecordFactory.createConsultationRecord(233, 1234, new Date(), null);
     @Test
     void a_create() {
         ConsultationRecord created = repository.create(consultationRecord);
@@ -34,8 +34,8 @@ class ConsultationRecordRepositoryTest {
     @Test
     void c_update() {
         ConsultationRecord updated = new ConsultationRecord.Builder().copy(consultationRecord)
-                .setConsultationRecordID("244")
-                .setPatientID("554")
+                .setConsultationRecordID(244)
+                .setPatientID(554)
                 .setConsultationRecordDate(new Date())
                 .setConsultationRecordTime(null)
                 .build();

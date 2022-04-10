@@ -1,5 +1,8 @@
 package Entity;
-
+/*Medication.java
+Entity for the Medication
+Author : Ilyaas Davids (219466424)
+Date : 10 April 2022*/
 public class Medication {
     private String medId ;
     private String suppId ;

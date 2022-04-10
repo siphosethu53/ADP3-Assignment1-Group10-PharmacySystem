@@ -1,5 +1,8 @@
 package Repository;
-
+/*SupplierRepository.java
+Repository Class for the Supplier
+Author : Ilyaas Davids (219466424)
+Date : 10 April 2022*/
 import Entity.Supplier;
 
 import java.util.HashSet;

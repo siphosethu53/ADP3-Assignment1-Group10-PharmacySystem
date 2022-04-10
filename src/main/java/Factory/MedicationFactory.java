@@ -1,5 +1,8 @@
 package Factory;
-
+/*MedicationFactory.java
+Factory for the Medication
+Author : Ilyaas Davids (219466424)
+Date : 10 April 2022*/
 import Entity.Medication;
 import Util.IlyaasHelper;
 

@@ -1,5 +1,8 @@
 package Test;
-
+/*MedicationRepositoryTest.java
+Test for the Medication Repository
+Author : Ilyaas Davids (219466424)
+Date : 10 April 2022*/
 import Entity.Medication;
 import Entity.Supplier;
 import Factory.MedicationFactory;

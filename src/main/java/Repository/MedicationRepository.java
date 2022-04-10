@@ -1,5 +1,8 @@
 package Repository;
-
+/*MedicationRepository.java
+Repository Class for the Medication
+Author : Ilyaas Davids (219466424)
+Date : 10 April 2022*/
 import Entity.Medication;
 
 import java.util.HashSet;

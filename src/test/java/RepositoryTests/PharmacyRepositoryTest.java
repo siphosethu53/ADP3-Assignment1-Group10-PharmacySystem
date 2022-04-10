@@ -6,7 +6,6 @@ package RepositoryTests;
    Date: 9 April 2022
 */
 
-import Entity.Employees;
 import Entity.Pharmacy;
 import Factory.PharmacyFactory;
 import Repository.PharmacyRepository;
@@ -41,7 +40,7 @@ class PharmacyRepositoryTest {
     void c_update() {
         Pharmacy updated = new Pharmacy.Builder().copy(pharmacy).setPharmName("Chad")
                 .setPharmContact("0743126352")
-                .setSupplierID(2)
+                .setInventoryID(2)
                 .setCashierID(2)
                 .setPharmAddress("RockyRoad")
                 .build();

@@ -12,7 +12,7 @@ public class Pharmacy {
     private String pharmName;
     private String pharmAddress;
     private String pharmContact;
-    private int supplierID;
+    private int inventoryID;
 
     private Pharmacy (){}
     //Insert private constructor
@@ -22,7 +22,7 @@ public class Pharmacy {
         this.pharmName=builder.pharmName;
         this.pharmAddress=builder.pharmAddress;
         this.pharmContact=builder.pharmContact;
-        this.supplierID=builder.supplierID;
+        this.inventoryID=builder.inventoryID;
     }
 
 
@@ -46,8 +46,8 @@ public class Pharmacy {
         return pharmContact;
     }
 
-    public int getSupplierID() {
-        return supplierID;
+    public int getInventoryID() {
+        return inventoryID;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class Pharmacy {
                 ", pharmName='" + pharmName + '\'' +
                 ", pharmAddress='" + pharmAddress + '\'' +
                 ", pharmContact='" + pharmContact + '\'' +
-                ", supplierID=" + supplierID +
+                ", inventoryID=" + inventoryID +
                 '}';
     }
 
@@ -68,7 +68,7 @@ public class Pharmacy {
         private String pharmName;
         private String pharmAddress;
         private String pharmContact;
-        private int supplierID;
+        private int inventoryID;
 
         public Builder setPharmID(String pharmID) {
             this.pharmID = pharmID;
@@ -95,8 +95,8 @@ public class Pharmacy {
             return this;
         }
 
-        public Builder setSupplierID(int supplierID) {
-            this.supplierID = supplierID;
+        public Builder setInventoryID(int inventoryID) {
+            this.inventoryID = inventoryID;
             return this;
         }
 
@@ -106,7 +106,7 @@ public class Pharmacy {
             this.pharmName=pharmacy.pharmName;
             this.pharmAddress=pharmacy.pharmAddress;
             this.pharmContact=pharmacy.pharmContact;
-            this.supplierID=pharmacy.supplierID;
+            this.inventoryID=pharmacy.inventoryID;
             return this;
         }
         public Pharmacy build (){

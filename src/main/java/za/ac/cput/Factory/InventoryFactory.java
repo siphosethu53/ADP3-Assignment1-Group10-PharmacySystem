@@ -7,18 +7,21 @@
 
 package za.ac.cput.Factory;
 
+import za.ac.cput.Entity.Inventory;
+import za.ac.cput.Util.SiphosethuHelper;
+
 public class InventoryFactory {
-//    public static Inventory createAppointment(int inventoryID, String medicationID, int tableStockAmount,
-//                                              int medicineStockAmount) {
-//
-//
-//        String InventoryID = SiphosethuHelper.tableStockAmount();
-//        Inventory Invent = new Inventory.Builder().setTableStockAmount(inventoryID)
-//                .setInventoryID(doctorID)
-//                .setMedicationID(secretaryID)
-//                .setTableStockAmount(tableStockAmount)
-//                .setMedicineStockAmount(medicineStockAmount)
-//                .build();
-//        return Invent;
-//    }
+    public static Inventory createAppointment( String medicationID, int tableStockAmount,
+                                              int medicineStockAmount) {
+
+
+        int inventoryID = SiphosethuHelper.generateID();
+        Inventory Invent = new Inventory.Builder()
+                .setInventory(inventoryID)
+                .setMedicationID(medicationID)
+                .setTableStockAmount(tableStockAmount)
+                .setMedicineStockAmount(medicineStockAmount)
+                .build();
+       return Invent;
+    }
 }

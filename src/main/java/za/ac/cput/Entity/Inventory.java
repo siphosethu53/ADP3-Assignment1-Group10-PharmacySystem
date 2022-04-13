@@ -1,5 +1,7 @@
 /**
  * Author: Siphosethu Feni
+ * Student Number: 217237614
+ *  *  Group: 10
  * Inventory.java
  */
 package za.ac.cput.Entity;
@@ -9,19 +11,13 @@ public class Inventory {
     private String medicationID;
 
 
-    public Inventory(int inventoryID, String medicationID, int tableStockAmount, int medicineStockAmount) {
-        this.inventoryID = inventoryID;
-        this.medicationID = medicationID;
-        this.tableStockAmount = tableStockAmount;
-        this.medicineStockAmount = medicineStockAmount;
-    }
 
     private Inventory(Builder builder)
     {
-        this.inventoryID = inventoryID;
-        this.medicationID = medicationID;
-        this.tableStockAmount = tableStockAmount;
-        this.medicineStockAmount = medicineStockAmount;
+        this.inventoryID = builder.inventoryID;
+        this.medicationID = builder.medicationID;
+        this.tableStockAmount = builder.tableStockAmount;
+        this.medicineStockAmount = builder.medicineStockAmount;
 
     }
 
@@ -41,6 +37,15 @@ public class Inventory {
         return medicineStockAmount;
     }
 
+    @Override
+    public String toString() {
+        return "Builder{" +
+                "inventoryID='" + inventoryID + '\'' +
+                ", medicationID='" + medicationID + '\'' +
+                ", tableStockAmount='" + tableStockAmount + '\'' +
+                ", medicineStockAmount='" + medicineStockAmount + '\'' +
+                '}';
+    }
 
     public static class Builder {
 
@@ -63,7 +68,7 @@ public class Inventory {
             return this;
         }
 
-        public Builder setMedicineStockAmount(String MedicineStockAmount) {
+        public Builder setMedicineStockAmount(int MedicineStockAmount) {
             this.medicineStockAmount = medicineStockAmount;
             return this;
         }
@@ -82,15 +87,7 @@ public class Inventory {
         }
 
 
-        @Override
-        public String toString() {
-            return "Builder{" +
-                    "inventoryID='" + inventoryID + '\'' +
-                    ", medicationID='" + medicationID + '\'' +
-                    ", tableStockAmount='" + tableStockAmount + '\'' +
-                    ", medicineStockAmount='" + medicineStockAmount + '\'' +
-                    '}';
-        }
-    }
+
+}
 
 }

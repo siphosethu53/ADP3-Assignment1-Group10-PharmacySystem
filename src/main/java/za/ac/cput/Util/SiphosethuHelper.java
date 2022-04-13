@@ -1,7 +1,6 @@
-//*
-//        *  Name: Siphosethu
-//        *  Student Number: 217237614
-//        *  Group: 10
+//*  Name: Siphosethu
+ //       *  Student Number: 217237614
+ //       *  Group: 10
 //        *
 //        */
 
@@ -10,9 +9,9 @@ package za.ac.cput.Util;
 import java.util.UUID;
 
 public class SiphosethuHelper {
-    public static String generateID()
+    public static int generateID()
     {
-        return UUID.randomUUID().toString();
+        return UUID.randomUUID().hashCode();
     }
 
     public static boolean validEmail(String email) {

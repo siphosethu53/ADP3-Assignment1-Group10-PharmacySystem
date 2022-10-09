@@ -3,97 +3,71 @@
  Author: Zaeem Petersen (219010145)
  Date: 05 April 2022
 */
-package za.ac.cput.Entity;
+package za.ac.cput.domain;
 
-public class Prescription {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-    private int prescID;
-    private int customerID;
+@Entity
+public class Prescription implements Serializable {
+
+    @Id
+    private String prescID;
     private String prescType;
     private int prescDoses;
 
-    //private builder constructor
+    protected Prescription(){}
+
+    //builder constructor
     private Prescription(Builder builder){
         this.prescID = builder.prescID;
-        this.customerID = builder.customerID;
         this.prescType = builder.prescType;
         this.prescDoses = builder.prescDoses;
     }
 
-    public int getPrescID() {
+    //getters
+    public String getPrescID() {
         return prescID;
     }
-
-    public void setPrescID(int prescID) {
-        this.prescID = prescID;
-    }
-
-    public int getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
-
     public String getPrescType() {
         return prescType;
     }
-
-    public void setPrescType(String prescType) {
-        this.prescType = prescType;
-    }
-
     public int getPrescDoses() {
         return prescDoses;
-    }
-
-    public void setPrescDoses(int prescDoses) {
-        this.prescDoses = prescDoses;
     }
 
     @Override
     public String toString() {
         return "Prescription{" +
                 "prescID=" + prescID +
-                ", customerID=" + customerID +
                 ", prescType='" + prescType + '\'' +
                 ", prescDoses=" + prescDoses +
                 '}';
     }
 
     public static class Builder{
-        private int prescID;
-        private int customerID;
+        private String prescID;
         private String prescType;
         private int prescDoses;
 
-        public Builder setPrescID(int prescID) {
+        public Builder prescID(String prescID) {
             this.prescID = prescID;
             return this;
         }
-
-        public Builder setCustomerID(int customerID) {
-            this.customerID = customerID;
-            return this;
-        }
-
-        public Builder setPrescType(String prescType) {
+        public Builder prescType(String prescType) {
             this.prescType = prescType;
             return this;
         }
-
-        public Builder setPrescDoses(int prescDoses) {
+        public Builder prescDoses(int prescDoses) {
             this.prescDoses = prescDoses;
             return this;
         }
 
         public Builder copy(Prescription prescription){
             this.prescID = prescription.prescID;
-            this.customerID = prescription.customerID;
             this.prescType = prescription.prescType;
             this.prescDoses = prescription.prescDoses;
-
             return this;
         }
 

@@ -15,7 +15,7 @@ public class Prescription implements Serializable {
     @Id
     private String prescID;
     private String prescType;
-    private int prescDoses;
+    private String prescDoses;
 
     protected Prescription(){}
 
@@ -33,7 +33,7 @@ public class Prescription implements Serializable {
     public String getPrescType() {
         return prescType;
     }
-    public int getPrescDoses() {
+    public String getPrescDoses() {
         return prescDoses;
     }
 
@@ -49,7 +49,7 @@ public class Prescription implements Serializable {
     public static class Builder{
         private String prescID;
         private String prescType;
-        private int prescDoses;
+        private String prescDoses;
 
         public Builder prescID(String prescID) {
             this.prescID = prescID;
@@ -59,7 +59,7 @@ public class Prescription implements Serializable {
             this.prescType = prescType;
             return this;
         }
-        public Builder prescDoses(int prescDoses) {
+        public Builder prescDoses(String prescDoses) {
             this.prescDoses = prescDoses;
             return this;
         }

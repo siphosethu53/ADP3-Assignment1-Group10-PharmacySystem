@@ -1,4 +1,4 @@
-package domain;
+package za.ac.cput.domain;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.util.Objects;

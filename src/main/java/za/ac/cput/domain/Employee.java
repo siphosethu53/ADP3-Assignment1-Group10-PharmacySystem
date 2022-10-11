@@ -16,7 +16,7 @@ public class Employee implements Serializable {
 
     @Id
     private String staffId;
-    private String email;
+    private String gender;
     @Embedded
     private Name name;
 
@@ -25,7 +25,7 @@ public class Employee implements Serializable {
     //builder constructor
     private  Employee (Builder builder){
         this.staffId = builder.staffId;
-        this.email = builder.email;
+        this.gender = builder.gender;
         this.name = builder.name;
     }
 
@@ -33,8 +33,8 @@ public class Employee implements Serializable {
     public String getStaffId(){
         return staffId;
     }
-    public String getEmail(){
-        return email;
+    public String getGender(){
+        return gender;
     }
     public Name getName(){
         return name;
@@ -44,13 +44,13 @@ public class Employee implements Serializable {
     public String toString(){
         return "Employee{" +
                 "staffId='" + staffId + '\'' +
-                ", email='" + email + '\'' + '}';
+                ", gender='" + gender + '\'' + '}';
     }
 
     //builder class
     public static class Builder {
         private String staffId;
-        private String email;
+        private String gender;
         private Name name;
 
         public Builder staffId(String staffId) {
@@ -58,8 +58,8 @@ public class Employee implements Serializable {
             return this;
         }
 
-        public Builder email(String email) {
-            this.email=email;
+        public Builder gender(String gender) {
+            this.gender=gender;
             return this;
         }
 
@@ -71,7 +71,7 @@ public class Employee implements Serializable {
         public Builder copy(Employee employee)
         {
             this.staffId = employee.staffId;
-            this.email = employee.email;
+            this.gender = employee.gender;
             this.name = employee.name;
             return this;
         }

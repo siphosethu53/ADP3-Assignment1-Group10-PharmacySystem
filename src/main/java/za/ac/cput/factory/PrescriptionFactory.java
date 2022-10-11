@@ -1,3 +1,8 @@
+/* PrescriptionFactory.java
+ Factory for the Prescription
+ Author: Zaeem Petersen (219010145)
+ Date: 09 October 2022
+*/
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Prescription;

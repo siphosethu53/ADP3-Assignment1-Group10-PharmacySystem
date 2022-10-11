@@ -1,5 +1,5 @@
-package factory;
-import domain.Name;
+package za.ac.cput.factory;
+import za.ac.cput.domain.Name;
 import org.hibernate.validator.internal.util.StringHelper;
 
 /* NameFactory.java

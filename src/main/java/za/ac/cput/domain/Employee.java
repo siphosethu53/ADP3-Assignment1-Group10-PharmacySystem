@@ -1,3 +1,9 @@
+/* Employee.java
+ Entity for the Employee
+ Author: Zaeem Petersen (219010145)
+ Date: 08 October 2022
+*/
+
 package za.ac.cput.domain;
 
 import javax.persistence.Embedded;

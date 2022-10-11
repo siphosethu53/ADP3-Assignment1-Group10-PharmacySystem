@@ -1,4 +1,3 @@
-
 /**Contact.java
  * Domain class for Contact
  * Author: Daniella Burgess (219446482)

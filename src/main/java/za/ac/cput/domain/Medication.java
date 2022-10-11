@@ -1,8 +1,11 @@
 package za.ac.cput.domain;
-
+/*Ilyaas Davids (219466424)
+ * Medication domain
+ * 11 Oct 2022*/
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class Medication implements Serializable {
@@ -37,6 +40,19 @@ public class Medication implements Serializable {
                 ", medManufacturer='" + medManufacturer + '\'' +
                 ", suppId='" + suppId + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Medication that = (Medication) o;
+        return medId.equals(that.medId) && medName.equals(that.medName) && medManufacturer.equals(that.medManufacturer) && suppId.equals(that.suppId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(medId, medName, medManufacturer, suppId);
     }
 
     //Builder Constructor
@@ -74,5 +90,16 @@ public class Medication implements Serializable {
             this.suppId = suppId;
             return this;
         }
+
+        public Medication.Builder copy(Medication medication)
+        {
+            this.medId = medication.medId;
+            this.medName = medication.medName;
+            this.medManufacturer = medication.medManufacturer;
+            this.suppId = medication.suppId;
+            return this;
+        }
+        public Medication build(){ return new Medication(this);}
+
     }
 }

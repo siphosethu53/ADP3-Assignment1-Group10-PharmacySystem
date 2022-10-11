@@ -21,6 +21,7 @@ public class Pharmacy implements Serializable {
     private String pharmId;
     private String pharmName;
     private String medicationId;
+    private String inventoryId;
 
     @Embedded
     private PharmacyContact pharmacyContact;
@@ -33,6 +34,7 @@ public class Pharmacy implements Serializable {
         this.pharmId = builder.pharmId;
         this.pharmName = builder.pharmName;
         this.medicationId = builder.medicationId;
+        this.inventoryId = builder.inventoryId;
         this.pharmacyContact = builder.pharmacyContact;
     }
 
@@ -42,6 +44,8 @@ public class Pharmacy implements Serializable {
 
     public String getMedicationId() {return medicationId;}
 
+    public String getInventoryId() {return inventoryId;}
+
     public PharmacyContact getPharmacyContact() {return pharmacyContact;}
 
     @Override
@@ -50,10 +54,10 @@ public class Pharmacy implements Serializable {
                 "pharmId='" + pharmId + '\'' +
                 ", pharmName='" + pharmName + '\'' +
                 ", medicationId='" + medicationId + '\'' +
+                ", inventoryId='" + inventoryId + '\'' +
                 ", pharmacyContact=" + pharmacyContact +
                 '}';
     }
-
 
 
     @Override
@@ -61,16 +65,16 @@ public class Pharmacy implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pharmacy pharmacy = (Pharmacy) o;
-        return pharmId.equals(pharmacy.pharmId) && pharmName.equals(pharmacy.pharmName) && medicationId.equals(pharmacy.medicationId) && pharmacyContact.equals(pharmacy.pharmacyContact);
+        return pharmId.equals(pharmacy.pharmId) && pharmName.equals(pharmacy.pharmName) && medicationId.equals(pharmacy.medicationId) && inventoryId.equals(pharmacy.inventoryId) && pharmacyContact.equals(pharmacy.pharmacyContact);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pharmId, pharmName, medicationId, pharmacyContact);
+        return Objects.hash(pharmId, pharmName, medicationId, inventoryId, pharmacyContact);
     }
 
     public static class Builder{
-        private String pharmId, pharmName,medicationId ;
+        private String pharmId, pharmName,medicationId, inventoryId ;
         private PharmacyContact pharmacyContact;
 
         public Builder pharmId(String pharmId){
@@ -85,6 +89,11 @@ public class Pharmacy implements Serializable {
 
         public Builder medicationId(String medicationId){
             this.medicationId = medicationId;
+            return this;
+        }
+
+        public Builder inventoryId(String inventoryId){
+            this.inventoryId = inventoryId;
             return this;
         }
 

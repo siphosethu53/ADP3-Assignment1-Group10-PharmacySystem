@@ -1,15 +1,17 @@
 package za.ac.cput.domain;
-
+/*Ilyaas Davids (219466424)
+* Supplier domain
+* 11 Oct 2022*/
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class Supplier implements Serializable {
     @Id
     private String suppId;
     private String suppName;
-    private Contact contact;
 
 
    //Getters
@@ -21,17 +23,25 @@ public class Supplier implements Serializable {
         return suppName;
     }
 
-    public Contact getContact() {
-        return contact;
-    }
-
     @Override
     public String toString() {
         return "Supplier{" +
                 "suppId='" + suppId + '\'' +
                 ", suppName='" + suppName + '\'' +
-                ", Contact=" + contact +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Supplier supplier = (Supplier) o;
+        return suppId.equals(supplier.suppId) && suppName.equals(supplier.suppName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(suppId, suppName);
     }
 
     //Builder Constructor
@@ -40,14 +50,12 @@ public class Supplier implements Serializable {
     private  Supplier (Supplier.Builder builder){
         this.suppId = builder.suppId;
         this.suppName = builder.suppName;
-        this.contact = builder.contact;
     }
 
     //Builder Classes
    public static class Builder{
         private String suppId;
         private String suppName;
-        private Contact contact;
 
         public Supplier.Builder suppId(String suppId) {
             this.suppId=suppId;
@@ -59,10 +67,14 @@ public class Supplier implements Serializable {
             return this;
         }
 
-        public Supplier.Builder contact(Contact contact) {
-            this.contact=contact;
+        public Supplier.Builder copy(Supplier supplier)
+        {
+            this.suppId = supplier.suppId;
+            this.suppName = supplier.suppName;
             return this;
         }
+        public Supplier build(){ return new Supplier(this);}
+
 
     }
 

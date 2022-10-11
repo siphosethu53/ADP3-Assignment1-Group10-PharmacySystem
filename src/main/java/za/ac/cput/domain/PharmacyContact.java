@@ -5,80 +5,88 @@ Domain for the Pharmacy
 Author: Waseem Dollie (216040566)
 Date: 10 October 2022 */
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Embeddable
 public class PharmacyContact {
 
-    private String pharmId;
-    private String contact;
+    @NotNull
+    @Id
+    private String  PharmId;
+    @NotNull
+    @Embedded
+    private Contact contact;
 
-    private PharmacyContact(Builder builder){
-        this.pharmId = builder.pharmId;
-        this.contact = builder.contact;
+    public Contact getContact()
+    {
+        return contact;
     }
 
-    protected PharmacyContact(){
+    protected PharmacyContact() {}
+
+    PharmacyContact(PharmacyContact.Builder builder){
+        this.PharmId = builder.build().PharmId;
+        this.contact = builder.build().contact;
     }
 
-    public String getPharmId() {return pharmId;}
-
-    public String getContact() {return contact;}
-
-
-    private void setPharmId(String pharmId) {
-        this.pharmId = pharmId;
-    }
-    private void getContact(String contact) {
-        this.contact = contact;
+    public String getPharmId() {
+        return PharmId;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PharmacyContact pharmacyContact = (PharmacyContact) o;
-        return pharmId.equals(pharmacyContact.pharmId) && contact.equals(pharmacyContact.contact);
+        PharmacyContact that = (PharmacyContact) o;
+        return PharmId.equals(that.PharmId) && contact.equals(that.contact);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pharmId, contact);
+        return Objects.hash(PharmId, contact);
     }
 
     @Override
     public String toString() {
-        return "PharmacyContact{" +
-                "pharmId='" + pharmId + '\'' +
-                ", contact='" + contact + '\'' +
+        return "Builder{" +
+                "PharmId='" + PharmId + '\'' +
+                ", contact=" + contact +
                 '}';
     }
 
-    public static class Builder{
-        private String pharmId, contact;
+    public static class Builder {
+        private String PharmId;
+        private Contact contact;
 
-        public Builder pharmId(String pharmId){
-            this.pharmId = pharmId;
+        public PharmacyContact.Builder setPharmId(String PharmId) {
+            this.PharmId = PharmId;
             return this;
         }
 
-        public Builder contact(String contact){
+        public PharmacyContact.Builder setContact(Contact contact){
             this.contact = contact;
             return this;
         }
 
 
-        public Builder copy(PharmacyContact pharmacyContact){
-            this.pharmId = pharmacyContact.pharmId;
+        public PharmacyContact.Builder copy(PharmacyContact pharmacyContact) {
+            this.PharmId = pharmacyContact.PharmId;
             this.contact = pharmacyContact.contact;
             return this;
         }
 
-        public PharmacyContact build(){
+        public PharmacyContact build() {
             return new PharmacyContact(this);
         }
 
+
     }
+
+
 }
 

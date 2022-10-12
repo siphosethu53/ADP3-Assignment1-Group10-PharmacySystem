@@ -32,13 +32,25 @@ class EmployeeServiceImplTest {
 
     @Test
     void read() {
+     Employee read1 = empService.read(employee1.getStaffId());
+     Employee read2 = empService.read(employee2.getStaffId());
+
+     assertEquals(read1.getStaffId(), employee1.getStaffId());
+     System.out.println(read1);
+
+     //assertEquals(read2.getStaffId(), employee2.getStaffId());
+     //System.out.println(read2);
     }
 
     @Test
     void delete() {
+        boolean success = empService.delete(employee1.getStaffId());
+        assertTrue(success);
+        System.out.println("Deleted: " + success);
     }
 
     @Test
     void getAll() {
+        System.out.println(empService.getAll());
     }
 }

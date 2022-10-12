@@ -57,12 +57,12 @@ public class Supplier implements Serializable {
         private String suppId;
         private String suppName;
 
-        public Supplier.Builder suppId(String suppId) {
+        public Supplier.Builder setSuppId(String suppId) {
             this.suppId=suppId;
             return this;
         }
 
-        public Supplier.Builder suppName(String suppName) {
+        public Supplier.Builder setSuppName(String suppName) {
             this.suppName=suppName;
             return this;
         }

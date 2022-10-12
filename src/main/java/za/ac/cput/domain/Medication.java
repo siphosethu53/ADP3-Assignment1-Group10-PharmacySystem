@@ -71,22 +71,22 @@ public class Medication implements Serializable {
         private String medManufacturer;
         private String suppId;
 
-        public Medication.Builder medId(String medId) {
+        public Medication.Builder setMedId(String medId) {
             this.medId = medId;
             return this;
         }
 
-        public Medication.Builder medName(String medName) {
+        public Medication.Builder setMedName(String medName) {
             this.medName = medName;
             return this;
         }
 
-        public Medication.Builder medManufacturer(String medManufacturer) {
+        public Medication.Builder setMedManufacturer(String medManufacturer) {
             this.medManufacturer = medManufacturer;
             return this;
         }
 
-        public Medication.Builder suppId(String suppId) {
+        public Medication.Builder setSuppId(String suppId) {
             this.suppId = suppId;
             return this;
         }

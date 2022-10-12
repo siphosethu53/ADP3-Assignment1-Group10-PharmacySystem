@@ -56,12 +56,12 @@ public class SupplierContact implements Serializable {
         private String suppId;
         private Contact contact;
 
-        public SupplierContact.Builder suppId(String suppId) {
+        public SupplierContact.Builder setSuppId(String suppId) {
             this.suppId=suppId;
             return this;
         }
 
-        public SupplierContact.Builder contact(Contact contact) {
+        public SupplierContact.Builder setContact(Contact contact) {
             this.contact=contact;
             return this;
         }

@@ -1,4 +1,5 @@
 package za.ac.cput.repository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -9,7 +10,7 @@ import java.util.Optional;
  * Thabiso Matsaba 220296006
  * 08 April 2022
  */
-
+@Repository
 public interface CustomerRepository extends JpaRepository<Customer, String> {
     List<Customer> findAll();
     Optional<Customer> findById(String id);

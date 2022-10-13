@@ -16,4 +16,13 @@ class SupplierContactFactoryTest {
         System.out.println(exceptionMessage);
     }
 
+    @Test
+    @Order(2)
+    public void buildWithError(){
+        Exception exception = assertThrows(IllegalArgumentException.class,()->
+                SupplierContactFactory.createSupplierContact("123","","209023651@mycput.ac.za"));
+        String exceptionMessage = exception.getMessage();
+        System.out.println(exceptionMessage);
+    }
+
 }

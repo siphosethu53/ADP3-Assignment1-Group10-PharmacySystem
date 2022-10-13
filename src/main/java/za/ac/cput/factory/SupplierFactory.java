@@ -1,6 +1,5 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.Medication;
 import za.ac.cput.domain.Supplier;
 import za.ac.cput.util.StringHelper;
 

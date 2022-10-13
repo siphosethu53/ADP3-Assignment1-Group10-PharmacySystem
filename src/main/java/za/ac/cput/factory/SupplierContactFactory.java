@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Contact;
-import za.ac.cput.domain.Medication;
 import za.ac.cput.domain.PharmacyContact;
 import za.ac.cput.domain.SupplierContact;
 import za.ac.cput.util.StringHelper;

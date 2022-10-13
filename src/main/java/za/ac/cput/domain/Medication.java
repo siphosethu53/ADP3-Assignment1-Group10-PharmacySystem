@@ -1,7 +1,5 @@
 package za.ac.cput.domain;
-/*Ilyaas Davids (219466424)
- * Medication domain
- * 11 Oct 2022*/
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -15,7 +13,7 @@ public class Medication implements Serializable {
     private String medManufacturer;
     private String suppId;
 
-   //Getter
+    //Getter
     public String getMedId() {
         return medId;
     }
@@ -103,3 +101,4 @@ public class Medication implements Serializable {
 
     }
 }
+

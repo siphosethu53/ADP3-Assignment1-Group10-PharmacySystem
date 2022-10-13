@@ -1,3 +1,8 @@
+/*SupplierContactServiceImpl.java
+ * Service Impl class for Supplier Contact
+ * Author: Ilyaas Davids (219466242)
+ * Date: 13 Oct 2022
+ */
 package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +36,10 @@ public class SupplierContactServiceImpl implements SupplierContactService{
             return true;
         }
         return false;
+    }
+
+    public SupplierContact updateSupplierContact(SupplierContact supplierContact){
+        return supplierContactRepository.save(supplierContact);
     }
 
     @Override

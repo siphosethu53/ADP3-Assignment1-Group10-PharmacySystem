@@ -1,3 +1,8 @@
+/*MedicationServiceImpl.java
+ * Service Impl class for Medication
+ * Author: Ilyaas Davids (219466242)
+ * Date: 13 Oct 2022
+ */
 package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +39,9 @@ public class MedicationServiceImpl implements MedicationService{
         }
         return false;
     }
+public Medication updateMedication(Medication medication){
+        return medicationRepository.save(medication);
+}
 
     @Override
     public List<Medication> getAll() {

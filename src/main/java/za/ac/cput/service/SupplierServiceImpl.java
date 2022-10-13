@@ -1,7 +1,13 @@
+/*SupplierServiceImpl.java
+ * Service Impl class for Supplier
+ * Author: Ilyaas Davids (219466242)
+ * Date: 13 Oct 2022
+ */
 package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.domain.Supplier;
+import za.ac.cput.domain.SupplierContact;
 import za.ac.cput.repository.SupplierRepository;
 
 import java.util.List;
@@ -33,6 +39,9 @@ public class SupplierServiceImpl implements SupplierService{
         return false;
     }
 
+    public Supplier updateSupplier(Supplier supplier){
+        return supplierRepository.save(supplier);
+    }
     @Override
     public List<Supplier> getAll() {
         return this.supplierRepository.findAll();

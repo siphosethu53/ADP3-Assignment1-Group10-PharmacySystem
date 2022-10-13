@@ -1,3 +1,8 @@
+/*MedicationFactory.java
+ * Factory class for Medication
+ * Author: Ilyaas Davids (219466242)
+ * Date: 12 Oct 2022
+ */
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Medication;

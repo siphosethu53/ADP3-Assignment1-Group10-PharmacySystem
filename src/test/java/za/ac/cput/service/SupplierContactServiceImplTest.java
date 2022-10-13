@@ -1,3 +1,8 @@
+/*SupplierContactServiceImplTest.java
+ * Test Service class for SupplierContact
+ * Author: Ilyaas Davids (219466242)
+ * Date: 13 Oct 2022
+ */
 package za.ac.cput.service;
 
 import org.junit.jupiter.api.AfterEach;

@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
-    private EmployeeRepository repository;
+    private final EmployeeRepository repository;
 
     @Autowired
     EmployeeServiceImpl(EmployeeRepository repository){

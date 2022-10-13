@@ -10,7 +10,7 @@ import za.ac.cput.factory.PrescriptionFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//@SpringBootTest
+@SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PrescriptionServiceImplTest {
 

@@ -3,9 +3,9 @@ package za.ac.cput.factory;
 import za.ac.cput.domain.Medication;
 import za.ac.cput.util.StringHelper;
 
-public class MediactionFactory {
+public class MedicationFactory {
 
-    public static Medication createMedication(String medId,String medName,String medManufacturer,String suppId){
+    public static Medication createMedication(String medId, String medName, String medManufacturer, String suppId){
 
         if(StringHelper.isNullorEmpty(medId)) {
             throw new IllegalArgumentException("Medication ID is null or empty");
@@ -24,3 +24,4 @@ public class MediactionFactory {
                 .build();
     }
 }
+

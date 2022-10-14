@@ -20,6 +20,7 @@ public class PharmacyContactFactory {
         if (contact == null)
             throw new IllegalArgumentException("Contact is null or empty");
 
+
         return new PharmacyContact.Builder().setPharmId(pharmId)
                 .setContact(contact)
                 .build();

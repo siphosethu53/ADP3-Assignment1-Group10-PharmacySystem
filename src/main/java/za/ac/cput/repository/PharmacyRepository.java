@@ -10,6 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface PharmacyRepository extends JpaRepository<Pharmacy, String> {
-    List<Pharmacy> findAll();
-    Optional<Pharmacy> findById(String id);
+
 }

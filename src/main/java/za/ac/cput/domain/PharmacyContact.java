@@ -9,15 +9,17 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
 
-@Embeddable
-public class PharmacyContact {
+@Entity
+public class PharmacyContact implements Serializable {
 
     @NotNull
     @Id
-    private String  PharmId;
+    private String  pharmId;
     @NotNull
     @Embedded
     private Contact contact;
@@ -29,13 +31,13 @@ public class PharmacyContact {
 
     protected PharmacyContact() {}
 
-    PharmacyContact(PharmacyContact.Builder builder){
-        this.PharmId = builder.build().PharmId;
-        this.contact = builder.build().contact;
+    PharmacyContact(Builder builder){
+        this.pharmId = builder.pharmId;
+        this.contact = builder.contact;
     }
 
     public String getPharmId() {
-        return PharmId;
+        return pharmId;
     }
 
     @Override
@@ -43,28 +45,28 @@ public class PharmacyContact {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PharmacyContact that = (PharmacyContact) o;
-        return PharmId.equals(that.PharmId) && contact.equals(that.contact);
+        return pharmId.equals(that.pharmId) && contact.equals(that.contact);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(PharmId, contact);
+        return Objects.hash(pharmId, contact);
     }
 
     @Override
     public String toString() {
-        return "Builder{" +
-                "PharmId='" + PharmId + '\'' +
+        return "PharmacyContact{" +
+                "pharmId='" + pharmId + '\'' +
                 ", contact=" + contact +
                 '}';
     }
 
     public static class Builder {
-        private String PharmId;
+        private String pharmId;
         private Contact contact;
 
-        public PharmacyContact.Builder setPharmId(String PharmId) {
-            this.PharmId = PharmId;
+        public PharmacyContact.Builder setPharmId(String pharmId) {
+            this.pharmId = pharmId;
             return this;
         }
 
@@ -75,14 +77,12 @@ public class PharmacyContact {
 
 
         public PharmacyContact.Builder copy(PharmacyContact pharmacyContact) {
-            this.PharmId = pharmacyContact.PharmId;
+            this.pharmId = pharmacyContact.pharmId;
             this.contact = pharmacyContact.contact;
             return this;
         }
 
-        public PharmacyContact build() {
-            return new PharmacyContact(this);
-        }
+        public PharmacyContact build() {return new PharmacyContact(this);}
 
 
     }

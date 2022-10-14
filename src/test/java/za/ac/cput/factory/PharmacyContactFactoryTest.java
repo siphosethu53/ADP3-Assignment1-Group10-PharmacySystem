@@ -13,7 +13,7 @@ public class PharmacyContactFactoryTest {
     @Order(1)
     public void buildWithSuccess(){
         Exception exception = assertThrows(IllegalArgumentException.class,()->
-                PharmacyContactFactory.build("123","0208348302","209023651@mycput.ac.za"));
+                PharmacyContactFactory.build("123","0208348302","216040566@mycput.ac.za"));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
     }
@@ -22,7 +22,7 @@ public class PharmacyContactFactoryTest {
     @Test
     @Order(2)
     public void buildWithError(){
-        PharmacyContact pharmacyContact = PharmacyContactFactory.build("123", "0208348302","209023651@mycput.ac.za");
+        PharmacyContact pharmacyContact = PharmacyContactFactory.build("123", "0208348302","216040566@mycput.ac.za");
         assertNotNull(pharmacyContact);
         System.out.println(pharmacyContact);
     }

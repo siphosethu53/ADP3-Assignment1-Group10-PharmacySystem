@@ -1,3 +1,8 @@
+/*MedicationFactoryTest.java
+ * Factory Test class for Medication
+ * Author: Ilyaas Davids (219466242)
+ * Date: 12 Oct 2022
+ */
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Order;
@@ -11,7 +16,7 @@ class MedicationFactoryTest {
     @Test
     @Order(1)
     void createMedication() {
-            Medication medication = MedicationFactory.createMedication("5","Allergex","Adcock Ingram","");
+            Medication medication = MedicationFactory.createMedication("5","Allergex","Adcock Ingram","7");
             assertNotNull(medication);
             System.out.println(medication);
         }

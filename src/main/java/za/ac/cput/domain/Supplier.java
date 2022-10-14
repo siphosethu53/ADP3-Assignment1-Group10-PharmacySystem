@@ -1,7 +1,10 @@
+/*Supplier.java
+ * Domain class for Supplier
+ * Author: Ilyaas Davids (219466242)
+ * Date: 11 Oct 2022
+ */
 package za.ac.cput.domain;
-/*Ilyaas Davids (219466424)
-* Supplier domain
-* 11 Oct 2022*/
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;

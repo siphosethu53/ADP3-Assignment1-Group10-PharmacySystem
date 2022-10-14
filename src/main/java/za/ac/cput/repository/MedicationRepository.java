@@ -8,7 +8,4 @@ import java.util.Optional;
 
 public interface MedicationRepository extends JpaRepository<Medication,String> {
 
-    List<Medication> findAll();
-    Optional<Medication> findById(String id);
-
 }

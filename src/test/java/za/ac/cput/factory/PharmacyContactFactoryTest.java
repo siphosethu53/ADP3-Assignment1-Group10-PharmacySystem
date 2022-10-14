@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class PharmacyContactFactoryTest {
     @Test
     @Order(1)
-    public void buildWithSuccess(){
+    public void buildWithError(){
         Exception exception = assertThrows(IllegalArgumentException.class,()->
                 PharmacyContactFactory.build("123","0208348302","216040566@mycput.ac.za"));
         String exceptionMessage = exception.getMessage();
@@ -21,7 +21,7 @@ public class PharmacyContactFactoryTest {
 
     @Test
     @Order(2)
-    public void buildWithError(){
+    public void buildWithSucess(){
         PharmacyContact pharmacyContact = PharmacyContactFactory.build("123", "0208348302","216040566@mycput.ac.za");
         assertNotNull(pharmacyContact);
         System.out.println(pharmacyContact);

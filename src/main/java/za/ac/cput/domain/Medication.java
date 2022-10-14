@@ -1,3 +1,8 @@
+/*Medication.java
+ * Domain class for Medication
+ * Author: Ilyaas Davids (219466242)
+ * Date: 11 Oct 2022
+ */
 package za.ac.cput.domain;
 
 import javax.persistence.Entity;

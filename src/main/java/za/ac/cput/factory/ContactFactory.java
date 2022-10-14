@@ -16,8 +16,8 @@ public class ContactFactory {
             if (StringHelper.isNullorEmpty(contactNumber) || StringHelper.isNullorEmpty(email))
                 throw new IllegalArgumentException("Contact number or email is null or empty");
 
-            if (Helper.isValidEmail(email))
-                throw new IllegalArgumentException("This is a valid email");
+//            if (Helper.isValidEmail(email))
+//                throw new IllegalArgumentException("This is a valid email");
 
             return  new Contact.Builder().setContactNumber(contactNumber)
                     .setEmail(email)

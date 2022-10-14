@@ -1,4 +1,4 @@
-package za.ac.cput.service.impl;
+package za.ac.cput.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,14 +33,14 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(s).orElse(null);
     }
 
-    @Override
-    public Customer update(Customer customer) {
-        if (customerRepository.existsById(customer.getCustomerId())) {
-            return customerRepository.save(customer);
-        } else {
-            return null;
-        }
-    }
+//    @Override
+//    public Customer update(Customer customer) {
+//        if (customerRepository.existsById(customer.getCustomerId())) {
+//            return customerRepository.save(customer);
+//        } else {
+//            return null;
+//        }
+//    }
     @Override
     public boolean delete(String id) {
         if (this.customerRepository.existsById(id)) {

@@ -1,5 +1,5 @@
 package za.ac.cput.service.impl;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import za.ac.cput.domain.Customer;
@@ -7,31 +7,30 @@ import za.ac.cput.factory.CustomerFactory;
 import za.ac.cput.repository.CustomerRepository;
 import za.ac.cput.service.CustomerService;
 import java.util.List;
-import java.util.Optional;
 /* CustomerServiceImpl.java
  * @Author: Thabiso Matsaba (220296006)
  * Date: 11 August 2022
  */
 @Service
 @Transactional
+@AllArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
-    @Autowired
-    public CustomerServiceImpl(CustomerRepository customerRepository) {
-    this.customerRepository = customerRepository;
-}
 
     @Override
-    public Customer create(Customer customer) {
+    public Customer save(Customer customer) {
+
         Customer validateCustomer;
         validateCustomer = CustomerFactory.build(customer.getCustomerId(), customer.getName());
+
         return customerRepository.save(validateCustomer);
     }
 
     @Override
-    public Optional<Customer> read(String s) {
-        return customerRepository.findById(s);
+    public Customer read(String s) {
+
+        return customerRepository.findById(s).orElse(null);
     }
 
     @Override
@@ -42,11 +41,16 @@ public class CustomerServiceImpl implements CustomerService {
             return null;
         }
     }
-
     @Override
-    public void delete(Customer customer) {
-        customerRepository.delete(customer);
+    public boolean delete(String id) {
+        if (this.customerRepository.existsById(id)) {
+            this.customerRepository.deleteById(id);
+            return true;
+        }
+        return false;
+
     }
+
     @Override
     public List<Customer> findAll() {
         return customerRepository.findAll();
@@ -54,10 +58,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void deleteById(String id) {
-        customerRepository.deleteById(id);
-        Optional<Customer> customer = read(id);
-        customer.ifPresent(this::delete);
+       customerRepository.deleteById(id);
     }
-    }
-
+}
 

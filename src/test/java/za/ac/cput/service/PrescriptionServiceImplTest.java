@@ -28,9 +28,9 @@ class PrescriptionServiceImplTest {
         Prescription create1 = prescService.save(this.prescription1);
         Prescription create2 = prescService.save(this.prescription2);
         assertNotNull(create1);
-        //assertEquals(this.prescription1, create2);
+        assertNotNull(create2);
         System.out.println(create1);
-        //System.out.println(create2);
+        System.out.println(create2);
     }
 
     @Order(2)
@@ -42,8 +42,8 @@ class PrescriptionServiceImplTest {
         assertEquals(read1.getPrescID(),prescription1.getPrescID());
         System.out.println(read1);
 
-       // assertEquals(read2.getPrescID(),prescription2.getPrescID());
-        //System.out.println(read2);
+        assertEquals(read2.getPrescID(),prescription2.getPrescID());
+        System.out.println(read2);
     }
 
     @Order(4)

@@ -20,7 +20,7 @@ public class Contact implements Serializable {
     public Contact() {}
 
     private Contact(Builder builder) {
-        this.contactNumber = builder.build().contactNumber;
+        this.contactNumber = builder.contactNumber;
         this.email = builder.email; }
 
     public String getContactNumber() {

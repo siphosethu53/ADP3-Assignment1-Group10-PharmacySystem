@@ -1,3 +1,8 @@
+/*SupplierContactFactory.java
+ * Factory class for SupplierContact
+ * Author: Ilyaas Davids (219466242)
+ * Date: 12 Oct 2022
+ */
 package za.ac.cput.factory;
 
 import za.ac.cput.domain.Contact;

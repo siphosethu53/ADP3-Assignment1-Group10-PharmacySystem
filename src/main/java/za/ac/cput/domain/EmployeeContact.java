@@ -31,8 +31,8 @@ public class EmployeeContact implements Serializable {
     protected EmployeeContact() {}
 
     EmployeeContact(Builder builder){
-        this.staffId = builder.build().staffId;
-        this.contact = builder.build().contact;
+        this.staffId = builder.staffId;
+        this.contact = builder.contact;
     }
 
     public String getStaffId() {

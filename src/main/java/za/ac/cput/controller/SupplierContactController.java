@@ -5,6 +5,8 @@
  */
 package za.ac.cput.controller;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,14 +14,17 @@ import za.ac.cput.domain.Supplier;
 import za.ac.cput.domain.SupplierContact;
 import za.ac.cput.service.SupplierContactServiceImpl;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/supplierContact")
+@Slf4j
 public class SupplierContactController {
 
     private final SupplierContactServiceImpl supplierContactService;
 
+    @Autowired
     public SupplierContactController(SupplierContactServiceImpl supplierContactService) {
         this.supplierContactService = supplierContactService;
     }
@@ -36,8 +41,8 @@ public class SupplierContactController {
         return new ResponseEntity<>(supplierContact, HttpStatus.OK);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<SupplierContact> saveSupplierContact(@RequestBody SupplierContact supplierContact){
+    @PostMapping("/save")
+    public ResponseEntity<SupplierContact> saveSupplierContact(@Valid @RequestBody SupplierContact supplierContact){
         SupplierContact newSupplierContact = supplierContactService.save(supplierContact);
         return new ResponseEntity<>(newSupplierContact,HttpStatus.CREATED);
     }

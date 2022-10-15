@@ -1,67 +1,60 @@
 package za.ac.cput.service;
 
-import org.junit.jupiter.api.BeforeEach;
+/* PharmacyServiceImplTest.java
+ServiceImplTest for the Pharmacy
+Author: Waseem Dollie (216040566)
+Date: 14 October 2022 */
+
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.domain.Pharmacy;
+import za.ac.cput.factory.EmployeeFactory;
 import za.ac.cput.factory.PharmacyFactory;
-import za.ac.cput.repository.PharmacyRepository;
 
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
-
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PharmacyServiceImplTest {
-    private PharmacyServiceImpl pharmacyService;
 
-    private static Pharmacy pharmacy = PharmacyFactory.build("123","DolliePharm","22", "32");
+    @Autowired
+    PharmacyService pharmacyService;
 
-    @Mock
-    PharmacyRepository pharmacyRepository;
-    @BeforeEach
-    void setUp() {
-        pharmacyService = new PharmacyServiceImpl(pharmacyRepository);
-    }
+    private final Pharmacy pharmacy = PharmacyFactory.build("123", "DolliePharm", "23", "33");
 
-    @Test
     @Order(1)
+    @Test
     void save() {
-        pharmacyService.save(pharmacy);
-        ArgumentCaptor<Pharmacy> argumentCaptor = ArgumentCaptor.forClass(Pharmacy.class);
-        verify(pharmacyRepository).save(argumentCaptor.capture());
-        Pharmacy capturedPharmacy = argumentCaptor.getValue();
-        assertThat(capturedPharmacy).isEqualTo(pharmacy);
-        System.out.println(pharmacy);
+        Pharmacy create1 = pharmacyService.save(this.pharmacy);
+        assertNotNull(create1);
+        System.out.println(create1);
     }
 
-    @Test
     @Order(2)
+    @Test
     void read() {
-        pharmacyService.read("123");
-        verify(pharmacyRepository).findById(pharmacy.getPharmId());
-        assertNotNull(pharmacy.getPharmId());
-        System.out.println(pharmacy);
+        Pharmacy read1 = pharmacyService.read(pharmacy.getPharmId());
+
+        assertEquals(read1.getPharmId(), pharmacy.getPharmId());
+        System.out.println(read1);
+
     }
 
-    @Test
     @Order(4)
+    @Test
     void delete() {
-        pharmacyService.delete("123");
-        verify(pharmacyRepository).existsById(pharmacy.getPharmId());
-        System.out.println("ID " + pharmacy.getPharmId() +" has been deleted");
+        boolean success = pharmacyService.delete(pharmacy.getPharmId());
+        assertTrue(success);
+        System.out.println("Deleted: " + success);
     }
 
-    @Test
     @Order(3)
+    @Test
     void getAll() {
-        pharmacyService.getAll();
-        verify(pharmacyRepository).findAll();
-        System.out.println(pharmacy);
+        System.out.println(pharmacyService.getAll());
     }
 }

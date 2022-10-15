@@ -5,20 +5,25 @@
  */
 package za.ac.cput.controller;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Medication;
 import za.ac.cput.service.MedicationServiceImpl;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/medication")
+@RequestMapping("PharmacySystem/medication")
+@Slf4j
 public class MedicationController {
 
     private final MedicationServiceImpl medicationService;
 
+    @Autowired
     public MedicationController(MedicationServiceImpl medicationService) {
         this.medicationService = medicationService;
     }
@@ -35,8 +40,8 @@ public class MedicationController {
         return new ResponseEntity<>(medication, HttpStatus.OK);
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Medication> saveMedication(@RequestBody Medication medication){
+    @PostMapping("/save")
+    public ResponseEntity<Medication> saveMedication(@Valid @RequestBody Medication medication){
         Medication newMedication = medicationService.save(medication);
         return new ResponseEntity<>(newMedication,HttpStatus.CREATED);
     }

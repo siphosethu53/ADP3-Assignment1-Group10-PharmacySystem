@@ -1,24 +1,29 @@
-///*SupplierController.java
-// * Controller class for Supplier
-// * Author: Ilyaas Davids (219466242)
-// * Date: 11 Oct 2022
-// */
+/////*SupplierController.java
+//// * Controller class for Supplier
+//// * Author: Ilyaas Davids (219466242)
+//// * Date: 11 Oct 2022
+//// */
 //package za.ac.cput.controller;
 //
+//import lombok.extern.slf4j.Slf4j;
+//import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;
 //import org.springframework.web.bind.annotation.*;
 //import za.ac.cput.domain.Supplier;
 //import za.ac.cput.service.SupplierServiceImpl;
 //
+//import javax.validation.Valid;
 //import java.util.List;
 //
 //@RestController
 //@RequestMapping("/supplier")
+//@Slf4j
 //public class SupplierContoller {
 //
 //    private final SupplierServiceImpl supplierService;
 //
+//    @Autowired
 //    public SupplierContoller(SupplierServiceImpl supplierService) {
 //        this.supplierService = supplierService;
 //    }
@@ -35,8 +40,8 @@
 //        return new ResponseEntity<>(supplier, HttpStatus.OK);
 //    }
 //
-//    @PostMapping("/add")
-//    public ResponseEntity<Supplier> saveSupplier(@RequestBody Supplier supplier){
+//    @PostMapping("/save")
+//    public ResponseEntity<Supplier> saveSupplier(@Valid @RequestBody Supplier supplier){
 //        Supplier newSupplier = supplierService.save(supplier);
 //        return new ResponseEntity<>(newSupplier,HttpStatus.CREATED);
 //    }

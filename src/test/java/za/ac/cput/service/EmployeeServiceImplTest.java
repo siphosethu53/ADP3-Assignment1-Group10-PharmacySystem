@@ -26,9 +26,9 @@ class EmployeeServiceImplTest {
         Employee create1 = empService.save(this.employee1);
         Employee create2 = empService.save(this.employee2);
         assertNotNull(create1);
-        //assertEquals(this.employee2,create2);
+        assertNotNull(create2);
         System.out.println(create1);
-        //System.out.println(create2);
+        System.out.println(create2);
     }
 
     @Order(2)
@@ -40,8 +40,8 @@ class EmployeeServiceImplTest {
      assertEquals(read1.getStaffId(), employee1.getStaffId());
      System.out.println(read1);
 
-     //assertEquals(read2.getStaffId(), employee2.getStaffId());
-     //System.out.println(read2);
+     assertEquals(read2.getStaffId(), employee2.getStaffId());
+     System.out.println(read2);
     }
 
     @Order(4)

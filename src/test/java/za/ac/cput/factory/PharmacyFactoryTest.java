@@ -1,5 +1,10 @@
 package za.ac.cput.factory;
 
+/* PharmacyFactoryTest.java
+FactoryTest for the Pharmacy
+Author: Waseem Dollie (216040566)
+Date: 13 October 2022 */
+
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Pharmacy;

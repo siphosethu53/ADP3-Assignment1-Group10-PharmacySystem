@@ -17,14 +17,14 @@ class MedicationFactoryTest {
     @Order(1)
     void createMedication() {
             Medication medication = MedicationFactory.createMedication("5","Allergex","Adcock Ingram","7");
-            assertNotNull(medication);
+            Assertions.assertNotNull(medication);
             System.out.println(medication);
         }
     @Test
     @Order(1)
     void createMedicationError() {
         Medication medication = MedicationFactory.createMedication("5","","Adcock Ingram","");
-        assertNotNull(medication);
+        Assertions.assertNotNull(medication);
         System.out.println(medication);
     }
 

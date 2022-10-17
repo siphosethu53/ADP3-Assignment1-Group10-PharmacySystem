@@ -1,9 +1,6 @@
 package za.ac.cput.controller;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -30,7 +27,8 @@ class MedicationControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    private Medication medication;
+    private String id;
+    Medication medication;
 
     private String baseUrl;
 
@@ -41,31 +39,58 @@ class MedicationControllerTest {
     }
 
     @Test
-    void getAllMedication() {
+    @Order(3)
+    void getAll() {
         String url = baseUrl + "/all";
         System.out.println(url);
         ResponseEntity<Medication[]> response=
                 this.restTemplate.getForEntity(url,Medication[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
-                ()->assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()->assertTrue(response.getBody().length==1)
+                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                () -> assertNotNull(response.getBody())
         );
     }
 
     @Test
-    void readMedication() {
+    @Order(2)
+    void read() {
+        id = this.medication.getMedId();
+        String url = baseUrl + "/find/" + id ;
+        System.out.println(url);
+        ResponseEntity<Medication> response = this.restTemplate.getForEntity(url, Medication.class);
+        System.out.println(response);
+        assertAll(
+                ()->assertEquals(HttpStatus.OK,response.getStatusCode()),
+                ()->assertNotNull(response.getBody())
+                );
     }
 
     @Test
-    void saveMedication() {
+    @Order(1)
+    void save() {
+        String url = baseUrl + "/save";
+        System.out.println(url);
+        ResponseEntity<Medication> response = this.restTemplate
+                .postForEntity(url,this.medication,Medication.class);
+        System.out.println(response);
+        assertAll(
+                () -> assertEquals(HttpStatus.CREATED, response.getStatusCode()),
+                () -> assertNotNull(response.getBody())
+        );
     }
 
     @Test
-    void updateMedication() {
+    @Order(4)
+    void update() {
     }
 
     @Test
-    void deleteMedication() {
+    @Order(5)
+    void delete() {
+        id = this.medication.getMedId();
+        String url = baseUrl + "/delete/" + id;
+        System.out.println(url);
+        this.restTemplate.delete(url,medicationController.delete(url));
     }
 }

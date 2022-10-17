@@ -14,19 +14,19 @@ class EmployeeContactFactoryTest {
     @Test
     public void buildWithSuccess()
     {
-        Exception exception=assertThrows(IllegalArgumentException.class,()-> EmployeeContactFactory.build("03","0685678132", "test@gmail.com"));
+        Exception exception= Assertions.assertThrows(IllegalArgumentException.class,()-> EmployeeContactFactory.build("03","0685678132", "test@gmail.com"));
         String exceptionMessage= exception.getMessage();
         System.out.println(exceptionMessage);
-        assertSame("This is a valid email", exceptionMessage);
+        Assertions.assertSame("This is a valid email", exceptionMessage);
     }
 
     @Test
     public void buildWithError()
     {
-        Exception exception=assertThrows(IllegalArgumentException.class,()-> EmployeeContactFactory.build("03","", "test@gmail.com"));
+        Exception exception= Assertions.assertThrows(IllegalArgumentException.class,()-> EmployeeContactFactory.build("03","", "test@gmail.com"));
         String exceptionMessage= exception.getMessage();
         System.out.println(exceptionMessage);
-        assertSame("Contact number or email is null or empty", exceptionMessage);
+        Assertions.assertSame("Contact number or email is null or empty", exceptionMessage);
     }
 
 }

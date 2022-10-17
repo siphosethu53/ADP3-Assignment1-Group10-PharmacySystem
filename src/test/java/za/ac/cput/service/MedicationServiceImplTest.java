@@ -5,62 +5,47 @@
  */
 package za.ac.cput.service;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Medication;
 import za.ac.cput.factory.MedicationFactory;
-import za.ac.cput.repository.MedicationRepository;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
-
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class MedicationServiceImplTest {
-    private MedicationServiceImpl medicationService;
+    @Autowired
+    MedicationServiceImpl medicationService;
 
-    private static Medication medication = MedicationFactory.createMedication("2","Allergex" , "Adcock Ingram","7");
-
-    @Mock
-    MedicationRepository medicationRepository;
-    @BeforeEach
-    void setUp() {
-        medicationService = new MedicationServiceImpl(medicationRepository);
-    }
+    private static final Medication medication = MedicationFactory.createMedication("2","Allergex" , "Adcock Ingram","7");
 
     @Test
+    @Order(1)
     void save() {
-        medicationService.save(medication);
-        ArgumentCaptor<Medication> argumentCaptor = ArgumentCaptor.forClass(Medication.class);
-        verify(medicationRepository).save(argumentCaptor.capture());
-        Medication capturedMedication = argumentCaptor.getValue();
-        assertThat(capturedMedication).isEqualTo(medication);
-        System.out.println(medication);
+        Medication capturedMedication = medicationService.save(this.medication);
+        assertNotNull(capturedMedication);
+        System.out.println(capturedMedication);
     }
 
     @Test
+    @Order(2)
     void read() {
-        medicationService.read("2");
-        verify(medicationRepository).findById(medication.getMedId());
-        assertNotNull(medication.getMedId());
-        System.out.println(medication);
+        Medication readMedication = medicationService.read(medication.getMedId());
+        assertEquals(readMedication.getMedId(), medication.getMedId());
+        System.out.println(readMedication);
     }
 
     @Test
+    @Order(4)
     void delete() {
-        medicationService.delete("2");
-        verify(medicationRepository).existsById(medication.getMedId());
+        boolean success = medicationService.delete(medication.getMedId());
+        assertTrue(success);
         System.out.println("ID " + medication.getMedId() +" has been deleted");
     }
 
     @Test
+    @Order(3)
     void getAll() {
-        medicationService.getAll();
-        verify(medicationRepository).findAll();
-        System.out.println(medication);
+        System.out.println(medicationService.getAll());
     }
 }

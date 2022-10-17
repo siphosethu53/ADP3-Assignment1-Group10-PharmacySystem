@@ -14,16 +14,16 @@ class ContactFactoryTest {
     @Test
     void buildWithSuccess()
     {
-        Exception exception=assertThrows(IllegalArgumentException.class,()-> ContactFactory.build("001", "vanilla01@gmail.com"));
+        Exception exception= Assertions.assertThrows(IllegalArgumentException.class,()-> ContactFactory.build("001", "vanilla01@gmail.com"));
         String exceptionMessage= exception.getMessage();
         System.out.println(exceptionMessage);
-        assertSame("This is a valid email", exceptionMessage);
+        Assertions.assertSame("This is a valid email", exceptionMessage);
     }
 
     @Test
     void buildWithError()
     {
-        Exception exception=assertThrows(IllegalArgumentException.class,()-> ContactFactory.build("", null));
+        Exception exception= Assertions.assertThrows(IllegalArgumentException.class,()-> ContactFactory.build("", null));
         String exceptionMessage= exception.getMessage();
         System.out.println(exceptionMessage);
     }

@@ -9,8 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Medication;
 import za.ac.cput.domain.Supplier;
-import za.ac.cput.domain.SupplierContact;
-import za.ac.cput.factory.SupplierContactFactory;
+import za.ac.cput.factory.MedicationFactory;
 import za.ac.cput.factory.SupplierFactory;
 
 import java.util.Arrays;
@@ -18,25 +17,24 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class SupplierContactControllerTest {
+class SupplierControllerTest {
     @LocalServerPort
     private int port;
 
     @Autowired
-    private SupplierContactController supplierContactController;
+    private SupplierController supplierController;
 
     @Autowired
     private TestRestTemplate restTemplate;
 
     private String id;
 
-    SupplierContact supplierContact;
+    Supplier supplier;
 
     private String baseUrl;
-
     @BeforeEach
     void setUp() {
-        this.supplierContact = SupplierContactFactory.createSupplierContact("7","0846543214","219466424@mycput.ac.za");
+        this.supplier = SupplierFactory.createSupplier("7","ChemReacts");
         this.baseUrl = "http://localhost:" + this.port + "/PharmacySystem/supplier";
     }
 
@@ -45,8 +43,8 @@ class SupplierContactControllerTest {
     void getAll() {
         String url = baseUrl + "/all";
         System.out.println(url);
-        ResponseEntity<SupplierContact[]> response=
-                this.restTemplate.getForEntity(url,SupplierContact[].class);
+        ResponseEntity<Supplier[]> response=
+                this.restTemplate.getForEntity(url,Supplier[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -57,10 +55,10 @@ class SupplierContactControllerTest {
     @Test
     @Order(2)
     void read() {
-        id = this.supplierContact.getSuppId();
+        id = this.supplier.getSuppId();
         String url = baseUrl + "/find/" + id ;
         System.out.println(url);
-        ResponseEntity<SupplierContact> response = this.restTemplate.getForEntity(url,SupplierContact.class);
+        ResponseEntity<Supplier> response = this.restTemplate.getForEntity(url,Supplier.class);
         System.out.println(response);
         assertAll(
                 ()->assertEquals(HttpStatus.OK,response.getStatusCode()),
@@ -73,8 +71,8 @@ class SupplierContactControllerTest {
     void save() {
         String url = baseUrl + "/save";
         System.out.println(url);
-        ResponseEntity<SupplierContact> response = this.restTemplate
-                .postForEntity(url,this.supplierContact,SupplierContact.class);
+        ResponseEntity<Supplier> response = this.restTemplate
+                .postForEntity(url,this.supplier,Supplier.class);
         System.out.println(response);
         assertAll(
                 () -> assertEquals(HttpStatus.CREATED, response.getStatusCode()),
@@ -89,9 +87,10 @@ class SupplierContactControllerTest {
     @Test
     @Order(5)
     void delete() {
-        id = this.supplierContact.getSuppId();
+        id = this.supplier.getSuppId();
         String url = baseUrl + "/delete/" + id;
         System.out.println(url);
-        this.restTemplate.delete(url,supplierContactController.delete(url));
+        this.restTemplate.delete(url,supplierController.delete(url));
     }
+
 }

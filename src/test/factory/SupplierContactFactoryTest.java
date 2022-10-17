@@ -15,8 +15,8 @@ class SupplierContactFactoryTest {
     @Test
     @Order(1)
     public void buildWithSuccess(){
-        Exception exception = assertThrows(IllegalArgumentException.class,()->
-                SupplierContactFactory.createSupplierContact("123","0208348302","209023651@mycput.ac.za"));
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class,()->
+                SupplierContactFactory.createSupplierContact("7","0208348302","209023651@mycput.ac.za"));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
     }
@@ -24,8 +24,8 @@ class SupplierContactFactoryTest {
     @Test
     @Order(2)
     public void buildWithError(){
-        Exception exception = assertThrows(IllegalArgumentException.class,()->
-                SupplierContactFactory.createSupplierContact("123","","209023651@mycput.ac.za"));
+        Exception exception = Assertions.assertThrows(IllegalArgumentException.class,()->
+                SupplierContactFactory.createSupplierContact("7","","209023651@mycput.ac.za"));
         String exceptionMessage = exception.getMessage();
         System.out.println(exceptionMessage);
     }

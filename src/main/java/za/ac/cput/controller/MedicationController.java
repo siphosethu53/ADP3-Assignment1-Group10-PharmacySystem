@@ -29,31 +29,32 @@ public class MedicationController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Medication>> getAllMedication(){
+    public ResponseEntity<List<Medication>> getAll(){
         List<Medication> medications = medicationService.getAll();
         return new ResponseEntity<>(medications, HttpStatus.OK);
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Medication> readMedication(@PathVariable("id")String id){
-        Medication medication = medicationService.read(id);
-        return new ResponseEntity<>(medication, HttpStatus.OK);
+    public ResponseEntity<Medication> read(@PathVariable String id){
+        log.info("read request:{}", id);
+        Medication medication = this.medicationService.read(id);
+        return ResponseEntity.ok(medication);
     }
 
     @PostMapping("/save")
-    public ResponseEntity<Medication> saveMedication(@Valid @RequestBody Medication medication){
+    public ResponseEntity<Medication> save(@Valid @RequestBody Medication medication){
         Medication newMedication = medicationService.save(medication);
         return new ResponseEntity<>(newMedication,HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Medication> updateMedication(@RequestBody Medication medication){
+    public ResponseEntity<Medication> update(@RequestBody Medication medication){
         Medication updateMedication = medicationService.save(medication);
         return new ResponseEntity<>(updateMedication,HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteMedication(@PathVariable("id")String id){
+    public ResponseEntity<?> delete(@PathVariable("id")String id){
         medicationService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

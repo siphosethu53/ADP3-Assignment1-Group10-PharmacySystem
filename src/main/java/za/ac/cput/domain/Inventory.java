@@ -9,11 +9,14 @@ package za.ac.cput.domain;
 import javax.persistence.*;
 
 @Entity
+@Table
 public class Inventory {
+    @Column
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long inventoryID;
-
+    @Column
     private int tableStockAmount, medicineStockAmount;
 
     public Inventory(){}

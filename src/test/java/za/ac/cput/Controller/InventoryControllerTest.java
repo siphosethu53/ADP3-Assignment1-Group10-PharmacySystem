@@ -7,6 +7,8 @@
 
 package za.ac.cput.Controller;
 
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -22,6 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @TestMethodOrder(MethodOrderer.MethodName.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@Slf4j
 class InventoryControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
@@ -72,6 +75,7 @@ class InventoryControllerTest {
         assertNotNull(response.getBody());
         System.out.println("Updated: " + response.getBody());
     }
+   // @Disabled
 
     @Test
     void d_delete() {
@@ -80,10 +84,10 @@ class InventoryControllerTest {
         HttpHeaders headers = new HttpHeaders();
         headers.setBasicAuth(username, password);
         HttpEntity<Inventory> entity = new HttpEntity<>(inventory, headers);
-        ResponseEntity<Boolean> response = restTemplate.exchange(url, HttpMethod.DELETE, entity, Boolean.class);
+        ResponseEntity<Inventory> response = restTemplate.exchange(url, HttpMethod.DELETE, entity, Inventory.class);
         assertNotNull(response);
         assertNotNull(response.getBody());
-        System.out.println("Read: " + response.getBody());
+        System.out.println("Delete: " + response.getBody());
     }
 
 }

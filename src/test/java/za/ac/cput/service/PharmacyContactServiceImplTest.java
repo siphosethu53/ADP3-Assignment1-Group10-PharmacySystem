@@ -1,70 +1,62 @@
 package za.ac.cput.service;
 
-import org.junit.jupiter.api.BeforeEach;
+/* Pharmacy.java
+Service for the PharmacyContact
+Author: Waseem Dollie (216040566)
+Date: 115 October 2022 */
+
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import za.ac.cput.domain.Employee;
 import za.ac.cput.domain.Pharmacy;
 import za.ac.cput.domain.PharmacyContact;
+import za.ac.cput.factory.EmployeeFactory;
 import za.ac.cput.factory.PharmacyContactFactory;
 import za.ac.cput.factory.PharmacyFactory;
-import za.ac.cput.repository.PharmacyContactRepository;
-import za.ac.cput.repository.PharmacyRepository;
 
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
-
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PharmacyContactServiceImplTest {
-    private PharmacyContactServiceImpl pharmacyContactService;
 
-    private static PharmacyContact pharmacyContact = PharmacyContactFactory.build("123","0208348302","216040566@mycput.ac.za");
+    @Autowired
+    PharmacyContactService pharmacyContactService;
 
-    @Mock
-    PharmacyContactRepository pharmacyContactRepository;
-    @BeforeEach
-    void setUp() {
-        pharmacyContactService = new PharmacyContactServiceImpl(pharmacyContactRepository);
-    }
+    private final PharmacyContact pharmacyContact = PharmacyContactFactory.build("123","0208348302","216040566@mycput.ac.za");
 
-    @Test
     @Order(1)
+    @Test
     void save() {
-        pharmacyContactService.save(pharmacyContact);
-        ArgumentCaptor<PharmacyContact> argumentCaptor = ArgumentCaptor.forClass(PharmacyContact.class);
-        verify(pharmacyContactRepository).save(argumentCaptor.capture());
-        PharmacyContact capturedPharmacyContact = argumentCaptor.getValue();
-        assertThat(capturedPharmacyContact).isEqualTo(pharmacyContact);
-        System.out.println(pharmacyContact);
+        PharmacyContact create1 = pharmacyContactService.save(this.pharmacyContact);
+        assertNotNull(create1);
+        System.out.println(create1);
     }
 
-    @Test
     @Order(2)
+    @Test
     void read() {
-        pharmacyContactService.read("123");
-        verify(pharmacyContactRepository).findById(pharmacyContact.getPharmId());
-        assertNotNull(pharmacyContact.getPharmId());
-        System.out.println(pharmacyContact);
+        PharmacyContact read1 = pharmacyContactService.read(pharmacyContact.getPharmId());
+
+        assertEquals(read1.getPharmId(), pharmacyContact.getPharmId());
+        System.out.println(read1);
+
     }
 
-    @Test
     @Order(4)
+    @Test
     void delete() {
-        pharmacyContactService.delete("123");
-        verify(pharmacyContactRepository).existsById(pharmacyContact.getPharmId());
-        System.out.println("ID " + pharmacyContact.getPharmId() +" has been deleted");
+        boolean success = pharmacyContactService.delete(pharmacyContact.getPharmId());
+        assertTrue(success);
+        System.out.println("Deleted: " + success);
     }
 
-    @Test
     @Order(3)
+    @Test
     void getAll() {
-        pharmacyContactService.getAll();
-        verify(pharmacyContactRepository).findAll();
-        System.out.println(pharmacyContact);
+        System.out.println(pharmacyContactService.getAll());
     }
 }

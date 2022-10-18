@@ -5,62 +5,52 @@
  */
 package za.ac.cput.service;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Supplier;
 import za.ac.cput.factory.SupplierFactory;
-import za.ac.cput.repository.SupplierRepository;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.verify;
 
-@ExtendWith(MockitoExtension.class)
+@SpringBootTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class SupplierServiceImplTest {
-    private SupplierServiceImpl supplierService;
+    @Autowired
+    SupplierServiceImpl supplierService;
 
     private static Supplier supplier = SupplierFactory.createSupplier("7","ChemReact");
 
-    @Mock
-    SupplierRepository supplierRepository;
-    @BeforeEach
-    void setUp() {
-        supplierService = new SupplierServiceImpl(supplierRepository);
-    }
 
     @Test
+    @Order(1)
     void save() {
-        supplierService.save(supplier);
-        ArgumentCaptor<Supplier> argumentCaptor = ArgumentCaptor.forClass(Supplier.class);
-        verify(supplierRepository).save(argumentCaptor.capture());
-        Supplier capturedSupplier = argumentCaptor.getValue();
-        assertThat(capturedSupplier).isEqualTo(supplier);
-        System.out.println(supplier);
+        Supplier capturedSupplier = supplierService.save(this.supplier);
+        assertNotNull(capturedSupplier);
+        System.out.println(capturedSupplier);
     }
 
     @Test
+    @Order(2)
     void read() {
-        supplierService.read("7");
-        verify(supplierRepository).findById(supplier.getSuppId());
-        assertNotNull(supplier.getSuppId());
-        System.out.println(supplier);
+        Supplier readSupplier = supplierService.read(supplier.getSuppId());
+        assertEquals(readSupplier.getSuppId(), supplier.getSuppId());
+        System.out.println(readSupplier);
     }
 
     @Test
+    @Order(4)
     void delete() {
-        supplierService.delete("7");
-        verify(supplierRepository).existsById(supplier.getSuppId());
+        boolean success = supplierService.delete(supplier.getSuppId());
+        assertTrue(success);
         System.out.println("ID " + supplier.getSuppId() +" has been deleted");
     }
 
     @Test
+    @Order(3)
     void getAll() {
-        supplierService.getAll();
-        verify(supplierRepository).findAll();
-        System.out.println(supplier);
+        System.out.println(supplierService.getAll());
     }
 }

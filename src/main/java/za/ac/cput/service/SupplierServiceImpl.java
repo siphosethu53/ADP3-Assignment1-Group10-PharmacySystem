@@ -6,12 +6,14 @@
 package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Supplier;
 import za.ac.cput.domain.SupplierContact;
 import za.ac.cput.repository.SupplierRepository;
 
 import java.util.List;
-
+@Service
 public class SupplierServiceImpl implements SupplierService{
 
     private SupplierRepository supplierRepository;

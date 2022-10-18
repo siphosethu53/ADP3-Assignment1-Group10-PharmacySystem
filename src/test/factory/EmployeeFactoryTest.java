@@ -10,14 +10,14 @@ class EmployeeFactoryTest {
     @Test
     void testCreateEmployee() {
         Employee employee = EmployeeFactory.createEmployee("219010145", "male", "Zaeem", "", "Petersen");
-        assertNotNull(employee);
+        Assertions.assertNotNull(employee);
         System.out.println(employee);
     }
 
     @Test
     void testCreateEmployeeWithError() {
         Employee employee = EmployeeFactory.createEmployee("219010145", "", "Zaeem", "", "Petersen");
-        assertNotNull(employee);
+        Assertions.assertNotNull(employee);
         System.out.println(employee);
     }
 }

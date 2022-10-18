@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import za.ac.cput.domain.Medication;
 import za.ac.cput.domain.Supplier;
 import za.ac.cput.domain.SupplierContact;
 import za.ac.cput.service.SupplierContactServiceImpl;
@@ -30,31 +31,32 @@ public class SupplierContactController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<SupplierContact>> getAllSupplierContact(){
+    public ResponseEntity<List<SupplierContact>> getAll(){
         List<SupplierContact> supplierContacts  = supplierContactService.getAll();
         return new ResponseEntity<>(supplierContacts, HttpStatus.OK);
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<SupplierContact> readSupplierContact(@PathVariable("id")String id){
-        SupplierContact supplierContact = supplierContactService.read(id);
-        return new ResponseEntity<>(supplierContact, HttpStatus.OK);
+    public ResponseEntity<SupplierContact> read(@PathVariable("id")String id){
+        log.info("read request:{}", id);
+        SupplierContact supplierContact = this.supplierContactService.read(id);
+        return ResponseEntity.ok(supplierContact);
     }
 
     @PostMapping("/save")
-    public ResponseEntity<SupplierContact> saveSupplierContact(@Valid @RequestBody SupplierContact supplierContact){
+    public ResponseEntity<SupplierContact> save(@Valid @RequestBody SupplierContact supplierContact){
         SupplierContact newSupplierContact = supplierContactService.save(supplierContact);
         return new ResponseEntity<>(newSupplierContact,HttpStatus.CREATED);
     }
 
     @PutMapping("/update")
-    public ResponseEntity<SupplierContact> updateSupplierContact(@RequestBody SupplierContact supplierContact){
+    public ResponseEntity<SupplierContact> update(@RequestBody SupplierContact supplierContact){
         SupplierContact updateSupplierContact = supplierContactService.save(supplierContact);
         return new ResponseEntity<>(updateSupplierContact,HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteSupplierContact(@PathVariable("id")String id){
+    public ResponseEntity<?> delete(@PathVariable("id")String id){
         supplierContactService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }

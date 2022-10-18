@@ -13,11 +13,11 @@ import javax.persistence.*;
 @Entity
 @Table
 public class CustomerContact {
-    @Column@Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column
+
     private String customerId;
-    @Column
+
     private String contactId;
 
     public long getId() {

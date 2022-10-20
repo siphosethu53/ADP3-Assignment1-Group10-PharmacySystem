@@ -1,7 +1,7 @@
 /**
  * Author: Siphosethu Feni
  * Student Number: 217237614
- *  *  Group: 10
+ *  * Project Group: 10
  * IInventoryRepository.java
  */
 
